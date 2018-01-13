@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import {Link} from  'react-router-dom'
+import Essay from "./essay";
+import Rubric from './rubric';
+import Comments from './comments';
+import styled from 'styled-components';
 
-export default class HomePage extends Component {
+export default class Homepage extends Component {
     render() {
         return (
-            <div>
-                <h1 data-test-id={'title'}>Essay</h1>
-            <textarea data-test-id={'essayText'}rows="20" cols="100">
-            </textarea>
-                <div>
-                    <Link to='/summary'>Submit</Link>
-                </div>
-            </div>
+          <HomepageWrapper>
+              <Rubric />
+              <Essay />
+              <Comments />
+          </HomepageWrapper>
         );
     }
 }
+
+const HomepageWrapper = styled.div`
+
+`
