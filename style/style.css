@@ -1,6 +1,5 @@
-.container{
-  margin-left: 10px;
-  margin-right: 10px;
+.container-homepage{
+  margin: 20px 0px 20px 30px;
 }
 
 .rubric{
@@ -22,16 +21,14 @@ font-weight: bold;
   font-size: 20px;
 }
 .essay{
-  height:500px;
+  height:100%;
   margin-top: 20px;
   border: 1px solid black;
+  margin-bottom: 80px;
 }
 
 .comments-container{
   margin-top: 20px;
-  float: right;
   height:500px;
   border: 2px solid black;
-  border-left: 0px;
-
 }

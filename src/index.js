@@ -5,5 +5,5 @@ import Homepage from "./components/homepage";
 
 ReactDOM.render(
   <Homepage />
-  , document.querySelector('.container')
+  , document.querySelector('.container-homepage')
 );
