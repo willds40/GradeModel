@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Essay extends Component {
   render() {
     return (
-        <div className='col-md-9 essay'>
+        <div className='col-md-8 essay'>
           <h2>Speedily say has suitable disposal add boy</h2>
           <p>Her companions instrument set estimating sex remarkably solicitude motionless. Property men the why smallest graceful day insisted required. Inquiry justice country old placing sitting any ten age. Looking venture justice in evident in totally he do ability. Be is lose girl long of up give. Trifling wondered unpacked ye at he. In household certainty an on tolerably smallness difficult. Many no each like up be is next neat. Put not enjoyment behaviour her supposing. At he pulled object others.</p>
 
