@@ -5,6 +5,11 @@ export default class Comments extends Component {
         return (
             <div className='comments col-md-4'>
               <CommentBox />
+              <CommentBox />
+              <CommentBox />
+              <CommentBox />
+              <CommentBox />
+              <CommentBox />
             </div>
         );
     }
