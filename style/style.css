@@ -1,11 +1,15 @@
 .container-homepage{
   margin: 20px 20px 20px 30px;
 }
-
+.rubric-container{
+  position: relative;
+  z-index: 1;
+}
 .rubric{
-border:  1px solid black;
-height: 200px;
-text-align: center;
+  border:  1px solid black;
+  height: 200px;
+  text-align: center;
+  background-color: white;
 }
 
 .rubric-section{

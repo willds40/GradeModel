@@ -34,11 +34,12 @@
     "babel-preset-stage-1": "^6.1.18",
     "bootstrap": "^3.3.7",
     "lodash": "^3.10.1",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-redux": "4.3.0",
     "react-router": "^2.0.1",
     "react-router-dom": "^4.2.2",
+    "react-stickynode": "^1.4.0",
     "redux": "^3.0.4",
     "sass-loader": "^6.0.6"
   }
