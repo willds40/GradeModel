@@ -53,3 +53,11 @@ font-weight: bold;
 p{
   font-size: 25px;
 }
+.add-comment{
+  display: flex;
+}
+.add-comment-icon{
+  height:20px;
+  margin-bottom: 40px;
+  padding-right: 10px;
+}
