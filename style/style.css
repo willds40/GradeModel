@@ -50,8 +50,8 @@ font-weight: bold;
   white-space: normal;
 }
 
-p{
-  font-size: 25px;
+.essay-text {
+  font-size: 30px;
 }
 .add-comment{
   display: flex;
