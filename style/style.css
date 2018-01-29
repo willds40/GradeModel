@@ -29,14 +29,18 @@ font-weight: bold;
   border: 1px solid black;
   margin-bottom: 80px;
 }
+.essay-text {
+  font-size: 30px;
+}
 
 .comments{
   margin-top: 20px;
   height:100% important!;
   border: 2px solid black;
 }
+
 .input-comment{
-  margin-top: 20px;
+  margin-top: -20px;
   height:200px;
   width: 100%;
   border: 1px solid black;
@@ -50,9 +54,6 @@ font-weight: bold;
   white-space: normal;
 }
 
-.essay-text {
-  font-size: 30px;
-}
 .add-comment{
   display: flex;
 }
@@ -60,4 +61,11 @@ font-weight: bold;
   height:20px;
   margin-bottom: 40px;
   padding-right: 10px;
+}
+
+.close-comment-icon{
+  float: right;
+  height: 20px;
+  position: relative;
+  z-index: 0;
 }
