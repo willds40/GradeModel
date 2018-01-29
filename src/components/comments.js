@@ -11,7 +11,7 @@ export default class Comments extends Component {
               <CommentBox />
               <CommentBox />
               <CommentBox />
-              <span className='add-comment'>
+              <span className='add-comment col-md-8 '>
               <img src={plusIcon} className='add-comment-icon' />
               <label>Add Comment</label>
               </span>

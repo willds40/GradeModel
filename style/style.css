@@ -56,6 +56,7 @@ font-weight: bold;
 
 .add-comment{
   display: flex;
+  float: right;
 }
 .add-comment-icon{
   height:20px;
