@@ -33,6 +33,16 @@ font-weight: bold;
   font-size: 30px;
 }
 
+.summary{
+  margin-top: 0px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  border: 1px solid black;
+}
+.summary-title{
+  text-align: center;
+}
+
 .comments{
   margin-top: 20px;
   height:100% important!;
