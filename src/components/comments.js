@@ -5,14 +5,19 @@ export default class Comments extends Component {
   constructor() {
     super();
     this.state = {
-      clicked: false
+      count: 0
     };
   }
   handleAddComment(event){
-    this.setState({
-      clicked: true
-    });
+    this.setState({count: this.state.count + 1})
   }
+  displayCommentBox(count){
+    if (count > 0){
+      console.log(this.state.count);
+      return <CommentBox />
+    }
+  }
+
     render() {
         return (
             <div className='comments col-md-4'>
@@ -22,7 +27,16 @@ export default class Comments extends Component {
               <CommentBox />
               <CommentBox />
               <CommentBox />
-              <div>{this.state.clicked ? <CommentBox /> : null}</div>
+              <CommentBox />
+              {this.state.count > 1 ? <CommentBox  /> : null }
+              {this.state.count > 2 ? <CommentBox  /> : null }
+              {this.state.count > 3 ? <CommentBox  /> : null }
+              {this.state.count > 4 ? <CommentBox  /> : null }
+              {this.state.count > 5 ? <CommentBox  /> : null }
+              {this.state.count > 6 ? <CommentBox  /> : null }
+              {this.displayCommentBox(this.state.count)}
+
+
               <span className='add-comment col-md-8 '>
                 <button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add comment</button>
               </span>
