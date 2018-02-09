@@ -13,7 +13,7 @@ export default class CommentBox extends Component {
         return (
           <div className='input-comment-container'>
           <button className="delete-comment-button">x</button>
-          <input value={this.state.value} className="input-comment"/>
+          <textarea value={this.state.value} className="input-comment"/>
             <select onChange={this.handleChange.bind(this)} className=" selectpicker select-comment">
              <option>Select</option>
              <option>er companions instrument set estimating sex remarkably solicitude motionless. Property men the why smallest graceful day insisted required. Inquiry justice country old placing sitting any ten age.</option>
