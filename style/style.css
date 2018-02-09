@@ -10,6 +10,7 @@
   height: 200px;
   text-align: center;
   background-color: white;
+  margin-bottom: 20px;
 }
 
 .rubric-section{
@@ -34,7 +35,6 @@ font-weight: bold;
 }
 
 .summary{
-  margin-top: 0px;
   margin-bottom: 20px;
   font-size: 30px;
   border: 1px solid black;
@@ -47,6 +47,7 @@ font-weight: bold;
   margin-top: 20px;
   height:100% important!;
   border: 2px solid black;
+  margin-bottom: 10px;
 }
 
 .input-comment{
