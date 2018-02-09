@@ -68,10 +68,12 @@ font-weight: bold;
   display: flex;
   float: right;
 }
-.add-comment-icon{
-  height:20px;
-  margin-bottom: 40px;
+.add-comment-button{
+  margin-bottom: 30px;
   padding-right: 10px;
+  margin-top: 20px;
+  background-color: Chartreuse;
+  font-size: 20px;
 }
 
 .close-comment-icon{
