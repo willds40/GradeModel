@@ -12,7 +12,6 @@ export default class CommentBox extends Component {
     render() {
         return (
           <div className='input-comment-container'>
-          <button className="delete-comment-button">x</button>
           <textarea value={this.state.value} className="input-comment"/>
             <select onChange={this.handleChange.bind(this)} className=" selectpicker select-comment">
              <option>Select</option>

@@ -21,21 +21,39 @@ export default class Comments extends Component {
     render() {
         return (
             <div className='comments col-md-4'>
+              <button className="delete-comment-button">x</button>
               <CommentBox />
+              <button className="delete-comment-button">x</button>
               <CommentBox />
+              <button className="delete-comment-button">x</button>
               <CommentBox />
+              <button className="delete-comment-button">x</button>
               <CommentBox />
+              <button className="delete-comment-button">x</button>
               <CommentBox />
+              <button className="delete-comment-button">x</button>
               <CommentBox />
+              <button className="delete-comment-button">x</button>
               <CommentBox />
+              {this.state.count > 0 ? <button className="delete-comment-button">x</button>
+              : null }
+              {this.state.count > 0 ? <CommentBox />
+              : null }
+              {this.state.count > 1 ? <button className="delete-comment-button">x</button>
+              : null }
               {this.state.count > 1 ? <CommentBox  /> : null }
+              {this.state.count > 2 ? <button className="delete-comment-button">x</button>
+              : null }
               {this.state.count > 2 ? <CommentBox  /> : null }
+              {this.state.count > 3 ? <button className="delete-comment-button">x</button>
+              : null }
               {this.state.count > 3 ? <CommentBox  /> : null }
+              {this.state.count > 4 ? <button className="delete-comment-button">x</button>
+              : null }
               {this.state.count > 4 ? <CommentBox  /> : null }
+              {this.state.count > 5 ? <button className="delete-comment-button">x</button>
+              : null }
               {this.state.count > 5 ? <CommentBox  /> : null }
-              {this.state.count > 6 ? <CommentBox  /> : null }
-              {this.displayCommentBox(this.state.count)}
-
 
               <span className='add-comment col-md-8 '>
                 <button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add comment</button>
