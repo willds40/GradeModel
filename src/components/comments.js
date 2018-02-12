@@ -5,36 +5,55 @@ export default class Comments extends Component {
   constructor() {
     super();
     this.state = {
-      count: 0
+      count: 0,
+      boxToDelete: 0
     };
   }
+
   handleAddComment(event){
     this.setState({count: this.state.count + 1})
   }
-  displayCommentBox(count){
-    if (count > 0){
-      console.log(this.state.count);
-      return <CommentBox />
-    }
+
+  handleDeleteCommment(){
+
+    this.setState({
+      boxToDelete: this.state.boxToDelete + 1
+    })
   }
 
     render() {
         return (
             <div className='comments col-md-4'>
-              <button className="delete-comment-button">x</button>
-              <CommentBox />
-              <button className="delete-comment-button">x</button>
-              <CommentBox />
-              <button className="delete-comment-button">x</button>
-              <CommentBox />
-              <button className="delete-comment-button">x</button>
-              <CommentBox />
-              <button className="delete-comment-button">x</button>
-              <CommentBox />
-              <button className="delete-comment-button">x</button>
-              <CommentBox />
-              <button className="delete-comment-button">x</button>
-              <CommentBox />
+
+              {this.state.boxToDelete < 1  ? <button className="delete-comment-button" onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
+              {this.state.boxToDelete < 1  ?  <CommentBox /> : null }
+
+              {this.state.boxToDelete < 2  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
+              {this.state.boxToDelete < 2 ?  <CommentBox /> : null }
+
+              {this.state.boxToDelete < 3  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
+              {this.state.boxToDelete < 3 ?  <CommentBox /> : null }
+
+              {this.state.boxToDelete < 4  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
+              {this.state.boxToDelete < 4 ?  <CommentBox /> : null }
+
+              {this.state.boxToDelete < 5  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
+              {this.state.boxToDelete < 5 ?  <CommentBox /> : null }
+
+              {this.state.boxToDelete < 6  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
+              {this.state.boxToDelete < 6 ?  <CommentBox /> : null }
+
+              {this.state.boxToDelete < 7  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
+              {this.state.boxToDelete < 7 ?  <CommentBox /> : null }
+
+
+
+
+
+
+
+
+
               {this.state.count > 0 ? <button className="delete-comment-button">x</button>
               : null }
               {this.state.count > 0 ? <CommentBox />
