@@ -4,21 +4,25 @@ import closeIcon from '../assets/icons/close-icon.png'
 export default class CommentBox extends Component {
   constructor(props){
     super(props);
-    this.state = { value:""};
+    this.state = {
+      count:0,
+      inputValue:""};
+
   }
-  handleChange(event){
-    this.setState({value:event.target.options[event.target.selectedIndex].text})
+
+
+  handleTextChange(e){
+    this.setState({
+      count: this.state.count + 1,
+      inputValue:e.target.value})
   }
-    render() {
+  render() {
         return (
           <div className='input-comment-container'>
-          <textarea value={this.state.value} className="input-comment"/>
-            <select onChange={this.handleChange.bind(this)} className=" selectpicker select-comment">
-             <option>Select</option>
-             <option>er companions instrument set estimating sex remarkably solicitude motionless. Property men the why smallest graceful day insisted required. Inquiry justice country old placing sitting any ten age.</option>
-            <option>Item 3</option>
-            </select>
-
+            {this.state.count < 1 ?
+              <input value={this.props.text + this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} /> :
+            <input value={ this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} />
+            }
           </div>
         );
     }
