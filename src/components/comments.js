@@ -6,74 +6,35 @@ export default class Comments extends Component {
     super();
     this.state = {
       count: 0,
-      boxToDelete: 0
-    };
+      boxes: [{"box" : "box0", "box1" : "box1"}]
+    }
   }
 
-  handleAddComment(event){
-    this.setState({count: this.state.count + 1})
+  handleAddComment(e){
+    var array = this.state.boxes;
+    var index = array.indexOf(e.target.value)
+    this.setState({boxes: this.state.boxes.concat(array)})
   }
 
-  handleDeleteCommment(){
-
-    this.setState({
-      boxToDelete: this.state.boxToDelete + 1
-    })
+  handleDeleteCommment(e){
+  console.log(e.target.value);
+  var array = this.state.boxes;
+  var index = array.indexOf(e.target.value)
+  array.splice(index, 1);
+  this.setState({boxes: array });
   }
 
     render() {
         return (
             <div className='comments col-md-4'>
-
-              {this.state.boxToDelete < 1  ? <button className="delete-comment-button" onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
-              {this.state.boxToDelete < 1  ?  <CommentBox /> : null }
-
-              {this.state.boxToDelete < 2  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
-              {this.state.boxToDelete < 2 ?  <CommentBox /> : null }
-
-              {this.state.boxToDelete < 3  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
-              {this.state.boxToDelete < 3 ?  <CommentBox /> : null }
-
-              {this.state.boxToDelete < 4  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
-              {this.state.boxToDelete < 4 ?  <CommentBox /> : null }
-
-              {this.state.boxToDelete < 5  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
-              {this.state.boxToDelete < 5 ?  <CommentBox /> : null }
-
-              {this.state.boxToDelete < 6  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
-              {this.state.boxToDelete < 6 ?  <CommentBox /> : null }
-
-              {this.state.boxToDelete < 7  ? <button className="delete-comment-button"  onClick={this.handleDeleteCommment.bind(this)}>x</button> : null}
-              {this.state.boxToDelete < 7 ?  <CommentBox /> : null }
-
-
-
-
-
-
-
-
-
-              {this.state.count > 0 ? <button className="delete-comment-button">x</button>
-              : null }
-              {this.state.count > 0 ? <CommentBox />
-              : null }
-              {this.state.count > 1 ? <button className="delete-comment-button">x</button>
-              : null }
-              {this.state.count > 1 ? <CommentBox  /> : null }
-              {this.state.count > 2 ? <button className="delete-comment-button">x</button>
-              : null }
-              {this.state.count > 2 ? <CommentBox  /> : null }
-              {this.state.count > 3 ? <button className="delete-comment-button">x</button>
-              : null }
-              {this.state.count > 3 ? <CommentBox  /> : null }
-              {this.state.count > 4 ? <button className="delete-comment-button">x</button>
-              : null }
-              {this.state.count > 4 ? <CommentBox  /> : null }
-              {this.state.count > 5 ? <button className="delete-comment-button">x</button>
-              : null }
-              {this.state.count > 5 ? <CommentBox  /> : null }
-
+            {this.state.boxes.map(function(item){
+              return <button value={item.id} key={item.id} className="delete-comment-button" onClick={this.handleDeleteCommment.bind(this)}>x</button>
+            }, this)
+            }
+            {this.state.boxes.map(function(item){
+              return <CommentBox value={item.id} />
+            }, this)
+            }
               <span className='add-comment col-md-8 '>
                 <button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add comment</button>
               </span>
