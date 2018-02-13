@@ -7,7 +7,6 @@ export default class CommentBox extends Component {
     this.state = {
       count:0,
       inputValue:""};
-
   }
 
 

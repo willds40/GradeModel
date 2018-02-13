@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CommentBox from './comment-box'
+import CommentDropDown from './comment-dropdown'
 import plusIcon from '../assets/icons/plus-icon.png'
 export default class Comments extends Component {
   constructor() {
@@ -33,6 +34,8 @@ export default class Comments extends Component {
                 return <div>
                 <button value={item} className="delete-comment-button" onClick={this.handleDeleteCommment.bind(this)}>x</button>
                 <CommentBox value={item} text={"comment text"}  />
+                <CommentDropDown />
+
                 </div>
               }, this)
               }
