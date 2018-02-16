@@ -10,17 +10,17 @@ export default class CommentDropDown extends Component {
   }
 
   handleSelectionChange(event){
-
-  var commentFromDropDpwn = event.target.options[event.target.selectedIndex].text;
+    var commentFromDropDown = event.target.options[event.target.selectedIndex].text;
+    this.setState({value: commentFromDropDown})
   }
 
   render() {
         return (
           <select onChange={this.handleSelectionChange.bind(this)} className=" selectpicker select-comment">
-         <option>Select</option>
-         <option>er companions instrument set estimating sex remarkably solicitude motionless. Property men the why smallest graceful day insisted required. Inquiry justice country old placing sitting any ten age.</option>
-         <option>Item 3</option>
-         </select>
+           <option>Select</option>
+           <option>er companions instrument set estimating sex remarkably solicitude motionless. Property men the why smallest graceful day insisted required. Inquiry justice country old placing sitting any ten age.</option>
+           <option>Item 3</option>
+          </select>
         );
     }
   }

@@ -6,41 +6,80 @@ export default class Comments extends Component {
   constructor() {
     super();
     this.state = {
-      count: 0,
-      boxes: ["box1", "box2", "box3", "box4", "box5", "box6"]
+      uniqueKey: 4,
+      boxes: [],
+      doNotDisplayBox:[]
     }
   }
 
-  handleAddComment(e){
-    var newId = this.state.count.toString()
+  handleAddComment(index){
+    console.log(index);
+    var deletedComments = this.state.doNotDisplayBox
+    deletedComments.push(index)
     this.setState({
-      boxes: [...this.state.boxes, ...newId],
-      count: this.state.count + 1
+      uniqueKey: this.state.uniqueKey + 1,
+      doNotDisplayBox : deletedComments
     })
   }
 
-  handleDeleteCommment(e){
-  var array = this.state.boxes;
-  var index = array.indexOf(e.target.value)
-  array.splice(index, 1);
-  console.log(this.state.boxes);
-  this.setState({boxes: array });
+  handleDelete(index) {
+    this.handleDeleteCommment(index)
+  }
+
+  handleDeleteCommment(index){
+  var deletedComments = this.state.doNotDisplayBox
+  deletedComments.push(index)
+  console.log(deletedComments);
+  this.setState({
+    doNotDisplayBox:deletedComments
+   });
   }
 
     render() {
         return (
             <div className='comments col-md-4'>
-              {this.state.boxes.map(function(item, index){
-                return <div>
-                <button value={item} className="delete-comment-button" onClick={this.handleDeleteCommment.bind(this)}>x</button>
-                <CommentBox value={item} text={"comment text"}  />
-                <CommentDropDown />
+            {this.state.doNotDisplayBox.includes(1) ? null :
+            <div>
+            <button  className="delete-comment-button" onClick=
+            {this.handleDelete.bind(this , 1)}
+            >x</button>
+            <CommentBox value={1}/>
+            <CommentDropDown />
+            </div>
+          }
 
-                </div>
-              }, this)
-              }
+          {this.state.doNotDisplayBox.includes(2) ? null :
+            <div>
+            <button  className="delete-comment-button" onClick=
+            {this.handleDelete.bind(this , 2)}
+            >x</button>
+            <CommentBox value={2}/>
+            <CommentDropDown />
+            </div>
+          }
+
+          {this.state.doNotDisplayBox.includes(3) ? null :
+            <div>
+            <button  className="delete-comment-button" onClick=
+            {this.handleDelete.bind(this, 3)}
+            >x</button>
+            <CommentBox value={3}/>
+            <CommentDropDown />
+            </div>
+          }
+
+          {this.state.doNotDisplayBox.includes(4) ?
+            <div>
+            <button  className="delete-comment-button" onClick=
+            {this.handleDelete.bind(this, 3)}
+            >x</button>
+            <CommentBox value={3}/>
+            <CommentDropDown />
+            </div> : null
+          }
+
               <span className='add-comment col-md-8 '>
-                <button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add comment</button>
+                <button onClick={this.handleAddComment.bind(this,this.state.uniqueKey)} className='add-comment-button'>Add comment</button>
               </span>
             </div>
         );

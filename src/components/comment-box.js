@@ -10,6 +10,15 @@ export default class CommentBox extends Component {
   }
 
 
+  handleDeleteCommmentText(){
+    console.log("handle delete comment textd");
+    this.setState({
+      count:0,
+      inputValue:""
+    })
+  }
+
+
   handleTextChange(e){
     this.setState({
       count: this.state.count + 1,
@@ -19,8 +28,8 @@ export default class CommentBox extends Component {
         return (
           <div className='input-comment-container'>
             {this.state.count < 1 ?
-              <input value={this.props.text + this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} /> :
-            <input value={ this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} />
+              <input value={this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} /> :
+              <input value={ this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} />
             }
           </div>
         );
