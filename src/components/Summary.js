@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 export default class Summary extends Component {
     render() {
         return (
-          <div className='summary'>
+          <div>
+          <div className ="col-md-3"> </div>
+          <div className='summary col-md-5'>
             <h2 className='summary-title'>SUMMARY</h2>
                 <ul>
                   <li>Do in laughter securing smallest sensible no mr hastened.Do in laughter securing smallest sensible no mr</li>
@@ -12,6 +14,7 @@ export default class Summary extends Component {
                 </ul>
           </div>
 
+          </div>
         );
     }
 }

@@ -5,8 +5,8 @@ import TextHighlight from 'react-text-highlight';
 export default class Essay extends Component {
   render() {
     return (
-        <div className='col-md-8 essay'>
-          <h2>Speedily say has suitable disposal add boy</h2>
+        <div className='col-md-9 essay'>
+          <h2 className="essay-title">Speedily say has suitable disposal add boy</h2>
           <div className ='essay-text'>
               <TextHighlight className='essay-text'
               highlight="ago"

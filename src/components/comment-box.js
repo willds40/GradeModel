@@ -26,7 +26,7 @@ export default class CommentBox extends Component {
   }
   render() {
         return (
-          <div className='input-comment-container'>
+          <div className="individual comment">
             {this.state.count < 1 ?
               <input value={this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} /> :
               <input value={ this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} />
