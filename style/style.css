@@ -42,6 +42,7 @@ font-weight: bold;
   background-color: white;
 }
 .essay-title{
+  margin-top: 20px;
   text-align: center;
 }
 .essay-text {
@@ -49,6 +50,7 @@ font-weight: bold;
 }
 
 .summary{
+  margin-top: 20px;
   margin-bottom: 20px;
   font-size: 18px;
   border: 1px solid black;
@@ -56,10 +58,11 @@ font-weight: bold;
 }
 .summary-title{
   text-align: center;
+  margin-top: 20px;
 }
 
 .comments{
-  margin-top: 20px;
+  margin-top: 10px;
   height:100% important!;
   margin-bottom: 10px;
 }
@@ -103,18 +106,28 @@ font-weight: bold;
 .add-comment-button{
   margin-bottom: 30px;
   padding-right: 10px;
-  margin-top: 20px;
   background-color: #5cb85c;
   font-size: 20px;
   color:#fff;
 }
+
+.summary-button{
+  margin-bottom: 10px;
+  padding-right: 10px;
+  background-color: #17a2b8;
+  font-size: 30px;
+  color:#fff;
+}
+
 .delete-comment-button{
   display: flex;
   float: right;
-  margin-right: 2px;
+  margin-bottom: 0px;
+  margin-right: 20px;
+   margin-top: 10px;
   background-color: #d9534f;
   color: #fff;
-  font-size: 12px;
-  height:20px;
+  font-size: 16px;
+  height:35px;
   position:relative;
 }
