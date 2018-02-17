@@ -3,6 +3,7 @@ import Essay from "./essay";
 import Rubric from './rubric';
 import Comments from './comments';
 import Summary from './summary';
+import Modal from './modal'
 
 
 export default class Homepage extends Component {
@@ -22,6 +23,7 @@ export default class Homepage extends Component {
     render() {
         return (
           <div>
+          <Modal />
               <Rubric />
               {this.state.open ===  false ?
                 <span className='add-comment col-md-7 '>

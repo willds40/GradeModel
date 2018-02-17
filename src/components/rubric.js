@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
 import Sticky from 'react-stickynode';
+import Modal from './modal'
 export default class Rubric extends Component {
 
   constructor() {
     super();
     this.state = {
-      thesisIsHovering: false
-    }
+      thesisIsOpen: false,
+      evidenceIsOpen:false,
+      analysisIsOpen:false,
+      conclusionIsOpen:false
+     };
   }
 
-  onHover(rubricSection){
-    if(rubricSection === "Thesis"){
-      this.setState({
-        thesisIsHovering:true
-      })
-    }
+  thesisToggleModal = () => {
+    this.setState({
+      thesisIsOpen: !this.state.thesisIsOpen
+    });
   }
 
-  onLeave(rubricSection){
-    if(rubricSection === "Thesis"){
-      this.setState({
-        thesisIsHovering:false
-      })
-    }
+  evidenceToggleModal = () => {
+    this.setState({
+      evidenceIsOpen: !this.state.evidenceIsOpen
+    });
+  }
+
+  analysisToggleModal = () => {
+    this.setState({
+      analysisIsOpen: !this.state.analysisIsOpen
+    });
+  }
+
+  conclusionToggleModal = () => {
+    this.setState({
+      conclusionIsOpen: !this.state.conclusionIsOpen
+    });
   }
 
     render() {
@@ -42,20 +54,39 @@ export default class Rubric extends Component {
 
 
             <tr>
-            <td onMouseEnter={this.onHover.bind(this ,"Thesis")}
-            onMouseLeave={this.onLeave.bind(this ,"Thesis")}
-            className='rubric-section'> Thesis Rubric information
-            {this.state.thesisIsHovering === true ? <div>Hello</div> : null}
+
+
+            <td onMouseEnter={this.thesisToggleModal.bind(this)}
+            onMouseLeave={this.thesisToggleModal.bind(this)}
+            className='rubric-section'> 'Thesis Rubric information'
+            <Modal section="Thesis"show={this.state.thesisIsOpen}
+            >Here is some content for the modal
+            </Modal>
             </td>
 
+            <td onMouseEnter={this.evidenceToggleModal.bind(this)}
+            onMouseLeave={this.evidenceToggleModal.bind(this)}
+            className='rubric-section'> 'Evidence Rubric information'
+            <Modal section="Evidence"show={this.state.evidenceIsOpen}
+            >Here is some content for the modal
+            </Modal>
+            </td>
 
+            <td onMouseEnter={this.analysisToggleModal.bind(this)}
+            onMouseLeave={this.analysisToggleModal.bind(this)}
+            className='rubric-section'> 'Analysis Rubric information'
+            <Modal section="Analysis"show={this.state.analysisIsOpen}
+            >Here is some content for the modal
+            </Modal>
+            </td>
 
-            <td className='rubric-section'> Rubric information</td>
-
-
-
-            <td className='rubric-section'> Rubric information</td>
-            <td className = 'rubric-section'>Rubric information</td>
+            <td onMouseEnter={this.conclusionToggleModal.bind(this)}
+            onMouseLeave={this.conclusionToggleModal.bind(this)}
+            className='rubric-section'> 'Conclusion Rubric information'
+            <Modal section="Evidence"show={this.state.conclusionIsOpen}
+            >Here is some content for the modal
+            </Modal>
+            </td>
 
             </tr>
 
@@ -71,6 +102,7 @@ export default class Rubric extends Component {
             <td className='rubric-number rubric-section'>4</td>
             <td className='rubric-number rubric-section'>3</td>
             </tr>
+
             </table>
           </Sticky>
           </div>
