@@ -2,46 +2,49 @@ import React, { Component } from 'react';
 import CommentBox from './comment-box'
 import CommentDropDown from './comment-dropdown'
 import plusIcon from '../assets/icons/plus-icon.png'
+
+const NUMBEROFCOMMENTSALLOWED = 6
 export default class Comments extends Component {
   constructor() {
     super();
     this.state = {
-      uniqueKey: 4,
-      boxes: [],
-      doNotDisplayBox:[]
+      commentNumber: 4,
+      commentsToAdd: [],
+      deletedComments:[]
     }
   }
 
-  handleAddComment(index){
-    console.log(index);
-    var deletedComments = this.state.doNotDisplayBox
-    deletedComments.push(index)
+  handleAddComment(commentNumber){
+    var addedComments = this.state.commentsToAdd
+    var deletedComments = this.state.deletedComments
+    addedComments.push(commentNumber)
+    var index = deletedComments.indexOf(index)
+    deletedComments.splice(index,1)
+    if(this.state.commentNumber < NUMBEROFCOMMENTSALLOWED){
+      this.state.commentNumber = this.state.commentNumber + 1
+    }
     this.setState({
-      uniqueKey: this.state.uniqueKey + 1,
-      doNotDisplayBox : deletedComments
+      commentNumber: this.state.commentNumber,
+      commentsToAdd : addedComments,
+      deletedComments:deletedComments
     })
   }
 
-  handleDelete(index) {
-    this.handleDeleteCommment(index)
-  }
-
-  handleDeleteCommment(index){
-  var deletedComments = this.state.doNotDisplayBox
-  deletedComments.push(index)
-  console.log(deletedComments);
+  handleDeleteComment(commentNumber){
+  var deletedComments = this.state.deletedComments
+  deletedComments.push(commentNumber)
   this.setState({
-    doNotDisplayBox:deletedComments
+    deletedComments : deletedComments,
    });
   }
 
     render() {
         return (
-            <div className='comments col-md-3'>
-            {this.state.doNotDisplayBox.includes(1) ? null :
+          <div className='comments col-md-3'>
+            {this.state.deletedComments.includes(1) ? null :
             <div className='input-comment-container'>
             <button  className="delete-comment-button" onClick=
-            {this.handleDelete.bind(this , 1)}
+            {this.handleDeleteComment.bind(this , 1)}
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
             <CommentBox value={1}/>
@@ -49,10 +52,10 @@ export default class Comments extends Component {
             </div>
           }
 
-          {this.state.doNotDisplayBox.includes(2) ? null :
+          {this.state.deletedComments.includes(2) ? null :
             <div className='input-comment-container'>
             <button  className="delete-comment-button" onClick=
-            {this.handleDelete.bind(this , 2)}
+            {this.handleDeleteComment.bind(this , 2)}
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
             <CommentBox value={2}/>
@@ -60,10 +63,10 @@ export default class Comments extends Component {
             </div>
           }
 
-          {this.state.doNotDisplayBox.includes(3) ? null :
+          {this.state.deletedComments.includes(3) && this.state.commentsToAdd.includes(4) ? null :
             <div className='input-comment-container'>
             <button  className="delete-comment-button" onClick=
-            {this.handleDelete.bind(this, 3)}
+            {this.handleDeleteComment.bind(this, 3)}
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
             <CommentBox value={3}/>
@@ -71,21 +74,44 @@ export default class Comments extends Component {
             </div>
           }
 
-          {this.state.doNotDisplayBox.includes(4) ?
+          {!this.state.deletedComments.includes(4)  && this.state.commentsToAdd.includes(4) ?
             <div className='input-comment-container'>
             <button  className="delete-comment-button" onClick=
-            {this.handleDelete.bind(this, 3)}
-            >x</button>
+            {this.handleDeleteComment.bind(this, 4)}
+            >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
-            <CommentBox value={3}/>
+            <CommentBox value={4}/>
             <CommentDropDown />
             </div> : null
           }
 
-              <span className='add-comment col-md-8 '>
-                <button onClick={this.handleAddComment.bind(this,this.state.uniqueKey)} className='add-comment-button'>Add New Comment</button>
-              </span>
-            </div>
+          { !this.state.deletedComments.includes(5) && this.state.commentsToAdd.includes(5) ? <div className='input-comment-container'>
+            <button  className="delete-comment-button" onClick=
+            {this.handleDeleteComment.bind(this, 5)}
+            >Remove</button>
+            <h4 className='comment-type'>Thesis</h4>
+            <CommentBox value={5}/>
+            <CommentDropDown />
+            </div> : null
+          }
+
+          {!this.state.deletedComments.includes(6) && this.state.commentsToAdd.includes(6) ?
+            <div className='input-comment-container'>
+            <button  className="delete-comment-button" onClick=
+            {this.handleDeleteComment.bind(this, 6)}
+            >Remove</button>
+            <h4 className='comment-type'>Thesis</h4>
+            <CommentBox value={6}/>
+            <CommentDropDown />
+            </div> : null
+          }
+
+          <span className='add-comment col-md-8 '>
+          {this.state.unique == 6 ?<button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add New Comment</button> :
+            <button onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add New Comment</button>
+          }
+          </span>
+        </div>
         );
     }
 }

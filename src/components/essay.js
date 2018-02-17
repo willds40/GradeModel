@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TextHighlight from 'react-text-highlight';
 
-
 export default class Essay extends Component {
   render() {
     return (
