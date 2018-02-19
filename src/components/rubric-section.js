@@ -5,6 +5,15 @@ export default class RubricSection extends Component {
 
   constructor() {
     super();
+    this.state = {
+    selectedOption: 'option'
+    }
+  }
+
+  OnScoreChange(changeEvent){
+    this.setState({
+    selectedOption: changeEvent.target.value
+  });
   }
 
     render() {
@@ -13,18 +22,22 @@ export default class RubricSection extends Component {
             <table className="col-md-12 rubric">
             <tr>
             <td className='rubric-number'>1
-            <input className='radio-section-button' type="radio" value="option1" checked={false} />
+            <input checked={this.state.selectedOption === 'option1'}
+             onChange={this.OnScoreChange.bind(this)} className='radio-section-button' type="radio" value="option1"/>
             </td>
             <td className='rubric-number rubric-section'> 2
-            <input className='radio-section-button' type="radio" value="option1" checked={false} />
+            <input checked={this.state.selectedOption === 'option2'}
+             onChange={this.OnScoreChange.bind(this)} className='radio-section-button' type="radio" value="option2"/>
 
             </td>
             <td className='rubric-number rubric-section'>3
-            <input className='radio-section-button' type="radio" value="option1" checked={false} />
+            <input checked={this.state.selectedOption === 'option3'}
+             onChange={this.OnScoreChange.bind(this)} className='radio-section-button' type="radio" value="option3"/>
 
             </td>
             <td className='rubric-number rubric-section'>4
-            <input className='radio-section-button' type="radio" value="option1" checked={false} />
+            <input checked={this.state.selectedOption === 'option4'}
+             onChange={this.OnScoreChange.bind(this)} className='radio-section-button' type="radio" value="option4"/>
             </td>
             </tr>
             <tr>
