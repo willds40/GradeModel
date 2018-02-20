@@ -38,11 +38,12 @@
     "lodash": "^3.10.1",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
+    "react-highlight-words": "^0.11.0",
     "react-redux": "4.3.0",
     "react-router": "^2.0.1",
     "react-router-dom": "^4.2.2",
     "react-stickynode": "^1.4.0",
-    "react-text-highlight": "^0.2.0",
+    "react-text-highlighter": "0.0.5",
     "redux": "^3.0.4",
     "sass-loader": "^6.0.6"
   }
