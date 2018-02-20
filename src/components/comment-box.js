@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CommentDropDown from './comment-dropdown'
 import closeIcon from '../assets/icons/close-icon.png'
 
 export default class CommentBox extends Component {
@@ -26,11 +27,14 @@ export default class CommentBox extends Component {
   }
   render() {
         return (
+          <div>
           <div className="individual comment">
             {this.state.count < 1 ?
               <input value={this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} /> :
               <input value={ this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} />
             }
+          </div>
+          <CommentDropDown />
           </div>
         );
     }

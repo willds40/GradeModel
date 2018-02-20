@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CommentBox from './comment-box'
-import CommentDropDown from './comment-dropdown'
 import plusIcon from '../assets/icons/plus-icon.png'
 
 const NUMBEROFCOMMENTSALLOWED = 6
@@ -47,8 +46,7 @@ export default class Comments extends Component {
             {this.handleDeleteComment.bind(this , 1)}
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
-            <CommentBox value={1}/>
-            <CommentDropDown />
+            <CommentBox value={1} />
             </div>
           }
 
@@ -59,7 +57,6 @@ export default class Comments extends Component {
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
             <CommentBox value={2}/>
-            <CommentDropDown />
             </div>
           }
 
@@ -70,7 +67,6 @@ export default class Comments extends Component {
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
             <CommentBox value={3}/>
-            <CommentDropDown />
             </div>
           }
 
@@ -81,7 +77,6 @@ export default class Comments extends Component {
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
             <CommentBox value={4}/>
-            <CommentDropDown />
             </div> : null
           }
 
@@ -91,7 +86,6 @@ export default class Comments extends Component {
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
             <CommentBox value={5}/>
-            <CommentDropDown />
             </div> : null
           }
 
@@ -102,7 +96,6 @@ export default class Comments extends Component {
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
             <CommentBox value={6}/>
-            <CommentDropDown />
             </div> : null
           }
 
