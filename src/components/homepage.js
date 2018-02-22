@@ -24,6 +24,7 @@ export default class Homepage extends Component {
       <div>
         <Modal />
         <Rubric />
+        <span className="rubric-hovering-note">*Hover Over Rubric For More Detail</span>
         {this.state.open ===  false ?
           <span className='add-comment col-md-7 '>
             <button onClick={this.onOpenModal.bind(this)} className='summary-button'>View Summary</button>

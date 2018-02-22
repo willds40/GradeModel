@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Summary extends Component {
     render() {
         return (
-          <span className=' summary col-md-5 col-md-offset-3'>
+          <span className=' summary col-md-6 col-md-offset-3'>
             <div>
               <h2 className='summary-title'>SUMMARY</h2>
                   <ul>

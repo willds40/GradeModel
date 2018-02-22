@@ -40,11 +40,12 @@ export default class RubricSection extends Component {
              onChange={this.OnScoreChange.bind(this)} className='radio-section-button' type="radio" value="option4"/>
             </td>
             </tr>
+
             <tr>
-            <td className='rubric-section'> {this.props.text}</td>
-            <td className='rubric-section'> {this.props.text} </td>
-            <td className='rubric-section'> {this.props.text}</td>
-            <td className = 'rubric-section'>{this.props.text}</td>
+            <td className='rubric-section'> {this.props.score1}</td>
+            <td className='rubric-section'> {this.props.score2} </td>
+            <td className='rubric-section'> {this.props.score3}</td>
+            <td className = 'rubric-section'>{this.props.score4}</td>
             </tr>
             </table>
           </div>

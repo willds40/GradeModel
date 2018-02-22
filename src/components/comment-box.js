@@ -10,7 +10,6 @@ export default class CommentBox extends Component {
       inputValue:""};
   }
 
-
   handleDeleteCommmentText(){
     console.log("handle delete comment textd");
     this.setState({
@@ -19,8 +18,8 @@ export default class CommentBox extends Component {
     })
   }
 
-
   handleTextChange(e){
+    console.log("hello");
     this.setState({
       count: this.state.count + 1,
       inputValue:e.target.value})
@@ -34,7 +33,9 @@ export default class CommentBox extends Component {
               <input value={ this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} />
             }
           </div>
-          <CommentDropDown />
+          <div>
+          <CommentDropDown text={""} />
+          </div>
           </div>
         );
     }

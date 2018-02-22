@@ -10,8 +10,10 @@ export default class CommentDropDown extends Component {
   }
 
   handleSelectionChange(event){
+    console.log("selection changed");
     var commentFromDropDown = event.target.options[event.target.selectedIndex].text;
     this.setState({value: commentFromDropDown})
+    return commentFromDropDown
   }
 
   render() {

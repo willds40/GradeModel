@@ -50,12 +50,7 @@ export default class Rubric extends Component {
             <td className='rubric-title rubric-section'>CONCLUSION</td>
             </tr>
 
-
-
-
             <tr>
-
-
             <td onMouseEnter={this.thesisToggleModal.bind(this)}
             onMouseLeave={this.thesisToggleModal.bind(this)}
             className='rubric-section'> 'Thesis Rubric information'
@@ -90,14 +85,8 @@ export default class Rubric extends Component {
 
             </tr>
 
-
-
-
-
             <tr>
             <td className='rubric-number'>4</td>
-
-
             <td className='rubric-number rubric-section'> 3</td>
             <td className='rubric-number rubric-section'>4</td>
             <td className='rubric-number rubric-section'>3</td>
