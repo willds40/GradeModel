@@ -31,6 +31,8 @@
 
 .rubric-section{
   border-left: 1px solid black;
+  padding-right: 10px;
+
 }
 
 .rubric-number{
@@ -84,7 +86,7 @@ font-weight: bold;
 
 .input-comment{
   margin-top: 20px;
-  height:50px;
+  height:150px;
   width: 90%;
   border: 1px solid black;
   margin-left: 20px;
@@ -96,12 +98,13 @@ font-weight: bold;
 }
 
 .input-comment-container{
-  height:170px;
+  height:300px;
   margin-bottom: 30px;
   margin-top: 10px;
   background-color: white;
   margin-left: 60px;
   border: 1px solid grey;
+  vertical-align: text-top;
 }
 .select-comment{
   margin-top: 20px;
@@ -118,6 +121,21 @@ font-weight: bold;
   display: flex;
   float: right;
 }
+
+.submit-essay{
+float:right;
+
+}
+
+.submit-button{
+  margin-bottom: 20px;
+  padding-right: 10px;
+  background-color: #17a2b8;
+  font-size: 30px;
+  color:white;
+  background-color: #007bff
+}
+
 .add-comment-button{
   margin-bottom: 30px;
   padding-right: 10px;
@@ -164,4 +182,22 @@ font-weight: bold;
   margin-left: 15px;
   margin-bottom: 10px;
   font-weight:bolder;
+}
+
+.thesis-section{
+  border: solid 4px #9400D3;
+}
+
+.evidence-section{
+  border: solid 4px orange;
+
+}
+
+.analysis-section{
+  border: solid 4px #17a2b8;
+
+}
+
+.conclusion-section{
+  border: solid 4px brown;
 }

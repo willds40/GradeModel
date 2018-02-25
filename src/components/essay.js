@@ -11,6 +11,9 @@ export default class Essay extends Component {
     }
   }
 
+  onSubmitGrade(){
+    window.alert("Thank You For Submitting Your Grade");
+  }
   textToHighlight(e) {
       var text = (window.getSelection().toString());
       this.state.highlightText.push(text)

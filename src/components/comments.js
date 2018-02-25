@@ -7,7 +7,7 @@ export default class Comments extends Component {
   constructor() {
     super();
     this.state = {
-      commentNumber: 4,
+      commentNumber: 0,///start,
       commentsToAdd: [],
       deletedComments:[]
     }
@@ -41,7 +41,7 @@ export default class Comments extends Component {
         return (
           <div className='comments col-md-3'>
             {this.state.deletedComments.includes(1) ? null :
-            <div className='input-comment-container'>
+            <div className='thesis-section input-comment-container'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 1)}
             >Remove</button>
@@ -51,21 +51,21 @@ export default class Comments extends Component {
           }
 
           {this.state.deletedComments.includes(2) ? null :
-            <div className='input-comment-container'>
+            <div className=' analysis-section input-comment-container'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 2)}
             >Remove</button>
-            <h4 className='comment-type'>Thesis</h4>
+            <h4 className='comment-type'>Analysis</h4>
             <CommentBox value={2}/>
             </div>
           }
 
-          {this.state.deletedComments.includes(3) && this.state.commentsToAdd.includes(4) ? null :
-            <div className='input-comment-container'>
+          {this.state.deletedComments.includes(3) ? null :
+            <div className='evidence-section input-comment-container'>
             <button  className="delete-comment-button" onClick=
-            {this.handleDeleteComment.bind(this, 3)}
+            {this.handleDeleteComment.bind(this , 3)}
             >Remove</button>
-            <h4 className='comment-type'>Thesis</h4>
+            <h4 className='comment-type'>Evidence</h4>
             <CommentBox value={3}/>
             </div>
           }

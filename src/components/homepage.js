@@ -10,6 +10,9 @@ export default class Homepage extends Component {
   state = {
     open: false,
   };
+  onSubmitGrade(){
+    window.alert("Thank You For Submitting Your Grade");
+  }
 
   onOpenModal = () => {
     this.setState({ open: true });
@@ -24,7 +27,7 @@ export default class Homepage extends Component {
       <div>
         <Modal />
         <Rubric />
-        <span className="rubric-hovering-note">*Hover Over Rubric For More Detail</span>
+        <span className="rubric-hovering-note">*Hover Over Rubric For More Detail Or To Change Score</span>
         {this.state.open ===  false ?
           <span className='add-comment col-md-7 '>
             <button onClick={this.onOpenModal.bind(this)} className='summary-button'>View Summary</button>
@@ -35,8 +38,11 @@ export default class Homepage extends Component {
           {this.state.open ===  false ? null :
           <Summary />
           }
-        <Essay />
+        <Essay/>
         <Comments />
+        <div className='submit-essay col-md-8'>
+          <button onClick={this.onSubmitGrade.bind(this)} className='submit-button'>Submit Grade</button>
+        </div>
       </div>
     );
   }

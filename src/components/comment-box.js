@@ -11,7 +11,6 @@ export default class CommentBox extends Component {
   }
 
   handleDeleteCommmentText(){
-    console.log("handle delete comment textd");
     this.setState({
       count:0,
       inputValue:""
@@ -19,14 +18,12 @@ export default class CommentBox extends Component {
   }
 
   handleTextChange(e){
-    console.log("hello");
     this.setState({
       count: this.state.count + 1,
       inputValue:e.target.value})
   }
 
   handleSelectionChange(event){
-    console.log("selection changed");
     var commentFromDropDown = event.target.options[event.target.selectedIndex].text;
     this.setState({inputValue: commentFromDropDown})
   }
@@ -36,8 +33,8 @@ export default class CommentBox extends Component {
           <div>
           <div className="individual comment">
             {this.state.count < 1 ?
-              <input value={this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} /> :
-              <input value={ this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} />
+              <textarea value={this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} /> :
+              <textarea value={ this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} />
             }
           </div>
           <div>

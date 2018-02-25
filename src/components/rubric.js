@@ -17,7 +17,7 @@ export default class Rubric extends Component {
       conclusionDisplayText: "DEFAULT ousehold certainty an on tolerably smallness difficult. Many no each like up be is next neat. Put not enjoyment behaviour her supposing. At he pulled object others.Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons",
       thesisScore: 4,
       evidenceScore: 3,
-      analyisScore: 2,
+      analysisScore: 2,
       conclusionScore:2
      };
   }
@@ -63,9 +63,9 @@ export default class Rubric extends Component {
        evidenceScore: event.target.id,
        evidenceDisplayText: event.target.value
      });
-     case "analaysis":
+     case "analysis":
      this.setState({
-       analyisScore: event.target.id,
+       analysisScore: event.target.id,
        analysisDisplayText: event.target.value
      });
      case "conclusion":
@@ -77,7 +77,6 @@ export default class Rubric extends Component {
    return null;
     }
   }
-
     render() {
         return (
           <div className='rubric-container'>
@@ -85,16 +84,17 @@ export default class Rubric extends Component {
             <table className="col-md-12 rubric">
 
             <tr>
-            <td className='rubric-title'>THESIS</td>
-            <td className='rubric-title rubric-section'>EVIDENCE</td>
-            <td className='rubric-title rubric-section'>ANALYSIS</td>
-            <td className='rubric-title rubric-section'>CONCLUSION</td>
+            <td className='rubric-title thesis-section'>THESIS</td>
+            <td className='rubric-title evidence-section'>EVIDENCE</td>
+            <td className='rubric-title analysis-section'>ANALYSIS</td>
+            <td className='rubric-title conclusion-section'>CONCLUSION</td>
             </tr>
 
             <tr>
-            <td onMouseEnter={this.thesisToggleModal.bind(this)}
-            onMouseLeave={this.thesisToggleModal.bind(this)}
-            className='rubric-section'>{this.state.thesisDisplayText}
+            <td className='thesis-section'
+            onMouseEnter={this.thesisToggleModal.bind(this)}
+            onMouseLeave={this.thesisToggleModal.bind(this)}>
+            {this.state.thesisDisplayText}
             <Modal
               section="thesis"
               show={this.state.thesisIsOpen}
@@ -104,9 +104,11 @@ export default class Rubric extends Component {
             </Modal>
             </td>
 
-            <td onMouseEnter={this.evidenceToggleModal.bind(this)}
+            <td className='evidence-section'
+            onMouseEnter={this.evidenceToggleModal.bind(this)}
             onMouseLeave={this.evidenceToggleModal.bind(this)}
-            className='rubric-section'>{this.state.evidenceDisplayText}
+            >
+            {this.state.evidenceDisplayText}
             <Modal
               section="evidence"
               show={this.state.evidenceIsOpen}
@@ -116,9 +118,10 @@ export default class Rubric extends Component {
             </Modal>
             </td>
 
-            <td onMouseEnter={this.analysisToggleModal.bind(this)}
+            <td className='analysis-section'
+            onMouseEnter={this.analysisToggleModal.bind(this)}
             onMouseLeave={this.analysisToggleModal.bind(this)}
-            className='rubric-section'>{this.state.evidenceDisplayText}
+            >{this.state.analysisDisplayText}
             <Modal
               section="analysis"
               show={this.state.analysisIsOpen}
@@ -130,7 +133,7 @@ export default class Rubric extends Component {
 
             <td onMouseEnter={this.conclusionToggleModal.bind(this)}
             onMouseLeave={this.conclusionToggleModal.bind(this)}
-            className='rubric-section'>{this.state.conclusionDisplayText}
+            className='conclusion-section'>{this.state.conclusionDisplayText}
             <Modal
               section="conclusion"
               show={this.state.conclusionIsOpen}
@@ -143,10 +146,10 @@ export default class Rubric extends Component {
             </tr>
 
             <tr>
-            <td className='rubric-number'>{this.state.thesisScore}</td>
-            <td className='rubric-number rubric-section'> {this.state.evidenceScore}</td>
-            <td className='rubric-number rubric-section'>{this.state.analyisScore}</td>
-            <td className='rubric-number rubric-section'>{this.state.conclusionScore}</td>
+            <td className='rubric-number thesis-section'>{this.state.thesisScore}</td>
+            <td className='rubric-number evidence-section'> {this.state.evidenceScore}</td>
+            <td className='rubric-number analysis-section'>{this.state.analysisScore}</td>
+            <td className='rubric-number conclusion-section'>{this.state.conclusionScore}</td>
             </tr>
 
             </table>
