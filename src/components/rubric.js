@@ -85,13 +85,11 @@ export default class Rubric extends Component {
 
             <tr>
             <td className='rubric-title thesis-section'>THESIS</td>
-            <td className='rubric-title evidence-section'>EVIDENCE</td>
-            <td className='rubric-title analysis-section'>ANALYSIS</td>
-            <td className='rubric-title conclusion-section'>CONCLUSION</td>
+            <td className='rubric-title evidence-section'>ASSERTIONS</td>
             </tr>
 
             <tr>
-            <td className='thesis-section'
+            <td className='thesis-section rubric-content-text'
             onMouseEnter={this.thesisToggleModal.bind(this)}
             onMouseLeave={this.thesisToggleModal.bind(this)}>
             {this.state.thesisDisplayText}
@@ -104,7 +102,7 @@ export default class Rubric extends Component {
             </Modal>
             </td>
 
-            <td className='evidence-section'
+            <td className='evidence-section rubric-content-text'
             onMouseEnter={this.evidenceToggleModal.bind(this)}
             onMouseLeave={this.evidenceToggleModal.bind(this)}
             >
@@ -117,39 +115,11 @@ export default class Rubric extends Component {
             >
             </Modal>
             </td>
-
-            <td className='analysis-section'
-            onMouseEnter={this.analysisToggleModal.bind(this)}
-            onMouseLeave={this.analysisToggleModal.bind(this)}
-            >{this.state.analysisDisplayText}
-            <Modal
-              section="analysis"
-              show={this.state.analysisIsOpen}
-              handleScoreChange={this.handleScoreChange.bind(this)}
-              handleTextAndScoreChange={this.handleTextAndScoreChange.bind(this)}
-            >
-            </Modal>
-            </td>
-
-            <td onMouseEnter={this.conclusionToggleModal.bind(this)}
-            onMouseLeave={this.conclusionToggleModal.bind(this)}
-            className='conclusion-section'>{this.state.conclusionDisplayText}
-            <Modal
-              section="conclusion"
-              show={this.state.conclusionIsOpen}
-              handleScoreChange={this.handleScoreChange.bind(this)}
-              handleTextAndScoreChange={this.handleTextAndScoreChange.bind(this)}
-            >
-            </Modal>
-            </td>
-
             </tr>
 
             <tr>
             <td className='rubric-number thesis-section'>{this.state.thesisScore}</td>
             <td className='rubric-number evidence-section'> {this.state.evidenceScore}</td>
-            <td className='rubric-number analysis-section'>{this.state.analysisScore}</td>
-            <td className='rubric-number conclusion-section'>{this.state.conclusionScore}</td>
             </tr>
 
             </table>

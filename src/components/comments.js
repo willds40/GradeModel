@@ -45,17 +45,17 @@ export default class Comments extends Component {
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 1)}
             >Remove</button>
-            <h4 className='comment-type'>Thesis</h4>
+            <h4 className='comment-type'>Argument</h4>
             <CommentBox value={1} />
             </div>
           }
 
           {this.state.deletedComments.includes(2) ? null :
-            <div className=' analysis-section input-comment-container'>
+            <div className=' evidence-section input-comment-container'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 2)}
             >Remove</button>
-            <h4 className='comment-type'>Analysis</h4>
+            <h4 className='comment-type'>Assertions</h4>
             <CommentBox value={2}/>
             </div>
           }
@@ -65,7 +65,7 @@ export default class Comments extends Component {
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 3)}
             >Remove</button>
-            <h4 className='comment-type'>Evidence</h4>
+            <h4 className='comment-type'>Assertions</h4>
             <CommentBox value={3}/>
             </div>
           }

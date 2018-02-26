@@ -32,7 +32,10 @@
 .rubric-section{
   border-left: 1px solid black;
   padding-right: 10px;
+}
 
+.rubric-content-text{
+  font-size: 18px;
 }
 
 .rubric-number{
@@ -41,7 +44,7 @@ font-weight: bold;
 }
 
 .rubric-title{
-  font-size: 20px;
+  font-size: 32px;
 }
 
 .essay{
