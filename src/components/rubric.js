@@ -80,7 +80,7 @@ export default class Rubric extends Component {
     render() {
         return (
           <div className='rubric-container'>
-          <Sticky enabled={true} top={0}>
+          <Sticky enabled={true} top={0} innerZ={0}>
             <table className="col-md-12 rubric">
 
             <tr>

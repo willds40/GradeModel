@@ -6,10 +6,15 @@ import Summary from './summary';
 import Modal from './modal'
 
 
+
 export default class Homepage extends Component {
-  state = {
+  constructor() {
+    super();
+    this.state = {
     open: false,
-  };
+    commmentTypeBar:false
+      }
+  }
   onSubmitGrade(){
     window.alert("Thank You For Submitting Your Grade");
   }
@@ -22,11 +27,24 @@ export default class Homepage extends Component {
     this.setState({ open: false });
   };
 
+  onNewWordsHighlight(){
+    this.setState({
+
+    })
+  }
+
+  onCompletionOfNewHighlight(){
+    this.setState({
+    
+    })
+  }
+
   render() {
     return (
       <div>
         <Modal />
         <Rubric />
+        {this.state.commmentTypeBar == true ? <CommentType /> : null}
         <span className="rubric-hovering-note">*Hover Over Rubric For More Detail Or To Change Score</span>
         {this.state.open ===  false ?
           <span className='add-comment col-md-7 '>
@@ -38,7 +56,9 @@ export default class Homepage extends Component {
           {this.state.open ===  false ? null :
           <Summary />
           }
-        <Essay/>
+        <Essay
+        onNewWordsHighlight = {this.onNewWordsHighlight.bind(this)}
+         />
         <Comments />
         <div className='submit-essay col-md-8'>
           <button onClick={this.onSubmitGrade.bind(this)} className='submit-button'>Submit Grade</button>

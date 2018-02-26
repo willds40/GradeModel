@@ -43,6 +43,7 @@ font-weight: bold;
 .rubric-title{
   font-size: 20px;
 }
+
 .essay{
   margin-top: 10px;
   border: 1px solid black;
@@ -122,6 +123,15 @@ font-weight: bold;
   float: right;
 }
 
+.comment-highlight{
+  display:inline-block;
+  list-style-type: none;
+  padding-right: 20px;
+  float: left;
+  width: 88px;
+  height: 64px;
+}
+
 .submit-essay{
 float:right;
 
@@ -185,19 +195,19 @@ float:right;
 }
 
 .thesis-section{
-  border: solid 4px #9400D3;
+  border: solid 8px #9400D3;
 }
 
 .evidence-section{
-  border: solid 4px orange;
+  border: solid 8px orange;
 
 }
 
 .analysis-section{
-  border: solid 4px #17a2b8;
+  border: solid 8px #17a2b8;
 
 }
 
 .conclusion-section{
-  border: solid 4px brown;
+  border: solid 8px brown;
 }

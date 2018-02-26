@@ -26,7 +26,7 @@ export default class Essay extends Component {
     return (
       <div className='col-md-9 essay'>
         <h2 className="essay-title">Speedily say has suitable disposal add boy</h2>
-        <div className ='essay-text' onMouseUp=             {this.textToHighlight.bind(this)}>
+        <div className ='essay-text' onMouseDown= {this.props.onNewWordsHighlight} onMouseUp= {this.textToHighlight.bind(this)}>
           <Highlighter
           searchWords={this.state.highlightText}
           autoEscape={true}
