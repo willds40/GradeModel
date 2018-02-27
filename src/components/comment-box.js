@@ -33,7 +33,7 @@ export default class CommentBox extends Component {
           <div>
           <div className="individual comment">
             {this.state.count < 1 ?
-              <textarea value={this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} /> :
+              <textarea value={this.props.value} className="input-comment" onChange={this.handleTextChange.bind(this)} /> :
               <textarea value={ this.state.inputValue} className="input-comment" onChange={this.handleTextChange.bind(this)} />
             }
           </div>

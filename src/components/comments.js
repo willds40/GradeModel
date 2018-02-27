@@ -7,7 +7,7 @@ export default class Comments extends Component {
   constructor() {
     super();
     this.state = {
-      commentNumber: 0,///start,
+      commentNumber: 4,
       commentsToAdd: [],
       deletedComments:[]
     }
@@ -32,6 +32,8 @@ export default class Comments extends Component {
   handleDeleteComment(commentNumber){
   var deletedComments = this.state.deletedComments
   deletedComments.push(commentNumber)
+  console.log(deletedComments);
+
   this.setState({
     deletedComments : deletedComments,
    });
@@ -41,32 +43,32 @@ export default class Comments extends Component {
         return (
           <div className='comments col-md-3'>
             {this.state.deletedComments.includes(1) ? null :
-            <div className='thesis-section input-comment-container'>
+            <div className='input-comment-container'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 1)}
             >Remove</button>
-            <h4 className='comment-type'>Argument</h4>
-            <CommentBox value={1} />
+            <h4 className='comment-type'>Thesis</h4>
+            <CommentBox value={"Great imagary"} />
             </div>
           }
 
           {this.state.deletedComments.includes(2) ? null :
-            <div className=' evidence-section input-comment-container'>
+            <div className='input-comment-container'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 2)}
             >Remove</button>
-            <h4 className='comment-type'>Assertions</h4>
-            <CommentBox value={2}/>
+            <h4 className='comment-type'>Thesis</h4>
+            <CommentBox value={"Perfect. 7/7"}/>
             </div>
           }
 
           {this.state.deletedComments.includes(3) ? null :
-            <div className='evidence-section input-comment-container'>
+            <div className='input-comment-container'>
             <button  className="delete-comment-button" onClick=
-            {this.handleDeleteComment.bind(this , 3)}
+            {this.handleDeleteComment.bind(this, 3)}
             >Remove</button>
-            <h4 className='comment-type'>Assertions</h4>
-            <CommentBox value={3}/>
+            <h4 className='comment-type'>Thesis</h4>
+            <CommentBox value={"Does this go with the rest of the essay?"}/>
             </div>
           }
 
@@ -76,7 +78,7 @@ export default class Comments extends Component {
             {this.handleDeleteComment.bind(this, 4)}
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
-            <CommentBox value={4}/>
+            <CommentBox value={""}/>
             </div> : null
           }
 
@@ -85,7 +87,7 @@ export default class Comments extends Component {
             {this.handleDeleteComment.bind(this, 5)}
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
-            <CommentBox value={5}/>
+            <CommentBox value={""}/>
             </div> : null
           }
 
@@ -95,13 +97,13 @@ export default class Comments extends Component {
             {this.handleDeleteComment.bind(this, 6)}
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
-            <CommentBox value={6}/>
+            <CommentBox value={""}/>
             </div> : null
           }
 
           <span className='add-comment col-md-8 '>
-          {this.state.unique == 6 ?<button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add New Comment</button> :
-            <button onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add New Comment</button>
+          {this.state.unique == 6 ?<button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add Comment</button> :
+            <button onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add Comment</button>
           }
           </span>
         </div>
