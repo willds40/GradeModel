@@ -9,8 +9,16 @@ export default class Comments extends Component {
     this.state = {
       commentNumber: 4,
       commentsToAdd: [],
-      deletedComments:[]
+      deletedComments:[],
+      commentTypeSelection :[]
     }
+  }
+
+  handleCommentTypeSelection(e){
+    this.state.commentTypeSelection.push(e.target.value)
+    this.setState({
+      commentTypeSelection:this.state.commentTypeSelection
+    })
   }
 
   handleAddComment(commentNumber){
@@ -32,7 +40,6 @@ export default class Comments extends Component {
   handleDeleteComment(commentNumber){
   var deletedComments = this.state.deletedComments
   deletedComments.push(commentNumber)
-  console.log(deletedComments);
 
   this.setState({
     deletedComments : deletedComments,
@@ -41,9 +48,10 @@ export default class Comments extends Component {
 
     render() {
         return (
-          <div className='comments col-md-3'>
+          <div className='comments col-md-3' thesi>
+
             {this.state.deletedComments.includes(1) ? null :
-            <div className='input-comment-container'>
+            <div className='input-comment-container thesis-section'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 1)}
             >Remove</button>
@@ -53,7 +61,7 @@ export default class Comments extends Component {
           }
 
           {this.state.deletedComments.includes(2) ? null :
-            <div className='input-comment-container'>
+            <div className='input-comment-container thesis-section'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 2)}
             >Remove</button>
@@ -63,7 +71,7 @@ export default class Comments extends Component {
           }
 
           {this.state.deletedComments.includes(3) ? null :
-            <div className='input-comment-container'>
+            <div className='input-comment-container thesis-section'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 3)}
             >Remove</button>
@@ -77,7 +85,7 @@ export default class Comments extends Component {
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 4)}
             >Remove</button>
-            <h4 className='comment-type'>Thesis</h4>
+            <h4 className='comment-type'>{this.state.commentTypeSelection[0]}</h4>
             <CommentBox value={""}/>
             </div> : null
           }
@@ -86,7 +94,7 @@ export default class Comments extends Component {
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 5)}
             >Remove</button>
-            <h4 className='comment-type'>Thesis</h4>
+            <h4 className='comment-type'>{ this.state.commentTypeSelection[1]}</h4>
             <CommentBox value={""}/>
             </div> : null
           }
@@ -96,16 +104,22 @@ export default class Comments extends Component {
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 6)}
             >Remove</button>
-            <h4 className='comment-type'>Thesis</h4>
+            <h4 className='comment-type'>{this.state.commentTypeSelection[2]}</h4>
             <CommentBox value={""}/>
             </div> : null
           }
 
-          <span className='add-comment col-md-8 '>
-          {this.state.unique == 6 ?<button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add Comment</button> :
+          <span className='add-comment col-md-4 '>
+          {this.state.unique == 6 ?<button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add Comment</button>
+          :
             <button onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add Comment</button>
           }
           </span>
+          <select
+          onChange={this.handleCommentTypeSelection.bind(this)}>
+          <option value="Thesis"> Thesis Comment </option>
+          <option value="Argument"> Argument Comment </option>
+          </select>
         </div>
         );
     }
