@@ -85,7 +85,7 @@ export default class Rubric extends Component {
 
             <tr>
             <td className='rubric-title thesis-section'>THESIS</td>
-            <td className='rubric-title evidence-section'>ASSERTIONS</td>
+            <td className='rubric-title Argument-section'>ASSERTIONS</td>
             </tr>
 
             <tr>
@@ -102,7 +102,7 @@ export default class Rubric extends Component {
             </Modal>
             </td>
 
-            <td className='evidence-section rubric-content-text'
+            <td className='Argument-section rubric-content-text'
             onMouseEnter={this.evidenceToggleModal.bind(this)}
             onMouseLeave={this.evidenceToggleModal.bind(this)}
             >
@@ -119,7 +119,7 @@ export default class Rubric extends Component {
 
             <tr>
             <td className='rubric-number thesis-section'>{this.state.thesisScore}</td>
-            <td className='rubric-number evidence-section'> {this.state.evidenceScore}</td>
+            <td className='rubric-number Argument-section'> {this.state.evidenceScore}</td>
             </tr>
 
             </table>

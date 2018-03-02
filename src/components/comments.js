@@ -51,7 +51,7 @@ export default class Comments extends Component {
           <div className='comments col-md-3' thesi>
 
             {this.state.deletedComments.includes(1) ? null :
-            <div className='input-comment-container thesis-section'>
+            <div className='input-comment-container Thesis-section'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 1)}
             >Remove</button>
@@ -61,7 +61,7 @@ export default class Comments extends Component {
           }
 
           {this.state.deletedComments.includes(2) ? null :
-            <div className='input-comment-container thesis-section'>
+            <div className='input-comment-container Thesis-section'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this , 2)}
             >Remove</button>
@@ -71,7 +71,7 @@ export default class Comments extends Component {
           }
 
           {this.state.deletedComments.includes(3) ? null :
-            <div className='input-comment-container thesis-section'>
+            <div className='input-comment-container Thesis-section'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 3)}
             >Remove</button>
@@ -81,7 +81,7 @@ export default class Comments extends Component {
           }
 
           {!this.state.deletedComments.includes(4)  && this.state.commentsToAdd.includes(4) ?
-            <div className='input-comment-container'>
+            <div className={'input-comment-container' + " " +  this.state.commentTypeSelection[0] + "-"  + "section"}>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 4)}
             >Remove</button>
@@ -90,7 +90,7 @@ export default class Comments extends Component {
             </div> : null
           }
 
-          { !this.state.deletedComments.includes(5) && this.state.commentsToAdd.includes(5) ? <div className='input-comment-container'>
+          { !this.state.deletedComments.includes(5) && this.state.commentsToAdd.includes(5) ? <div className={'input-comment-container' + " " +  this.state.commentTypeSelection[1] + "-"  + "section"}>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 5)}
             >Remove</button>
@@ -100,7 +100,7 @@ export default class Comments extends Component {
           }
 
           {!this.state.deletedComments.includes(6) && this.state.commentsToAdd.includes(6) ?
-            <div className='input-comment-container'>
+            <div className={'input-comment-container' + " " +  this.state.commentTypeSelection[2] + "-"  + "section"}>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 6)}
             >Remove</button>
@@ -117,6 +117,7 @@ export default class Comments extends Component {
           </span>
           <select
           onChange={this.handleCommentTypeSelection.bind(this)}>
+          <option> Select A Type of Comment </option>
           <option value="Thesis"> Thesis Comment </option>
           <option value="Argument"> Argument Comment </option>
           </select>
