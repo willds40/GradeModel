@@ -24,8 +24,10 @@ export default class CommentBox extends Component {
   }
 
   handleSelectionChange(event){
-    var commentFromDropDown = event.target.options[event.target.selectedIndex].text;
-    this.setState({inputValue: commentFromDropDown})
+    this.setState({
+        inputValue: event.target.value,
+        count: this.state.count + 1
+    })
   }
 
   render() {

@@ -48,8 +48,7 @@ export default class Comments extends Component {
 
     render() {
         return (
-          <div className='comments col-md-3' thesi>
-
+          <div className='comments col-md-3'>
             {this.state.deletedComments.includes(1) ? null :
             <div className='input-comment-container Thesis-section'>
             <button  className="delete-comment-button" onClick=
