@@ -84,12 +84,12 @@ export default class Rubric extends Component {
             <table className="col-md-12 rubric">
 
             <tr>
-            <td className='rubric-title thesis-section'>THESIS</td>
+            <td className='rubric-title Thesis-section'>THESIS</td>
             <td className='rubric-title Argument-section'>ASSERTIONS</td>
             </tr>
 
             <tr>
-            <td className='thesis-section rubric-content-text'
+            <td className='Thesis-section rubric-content-text'
             onMouseEnter={this.thesisToggleModal.bind(this)}
             onMouseLeave={this.thesisToggleModal.bind(this)}>
             {this.state.thesisDisplayText}
@@ -118,7 +118,7 @@ export default class Rubric extends Component {
             </tr>
 
             <tr>
-            <td className='rubric-number thesis-section'>{this.state.thesisScore}</td>
+            <td className='rubric-number Thesis-section'>{this.state.thesisScore}</td>
             <td className='rubric-number Argument-section'> {this.state.evidenceScore}</td>
             </tr>
 
