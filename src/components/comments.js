@@ -14,7 +14,19 @@ export default class Comments extends Component {
     }
   }
 
+  componentWillReceiveProps(){
+    console.log(this.props.onNewWordToHighlight);
+    if (this.props.onNewWordToHighlight == false) {
+      console.log("inside if ");
+      this.refs.item.focus()
+    }
+  }
+
   handleCommentTypeSelection(e){
+  this.handleNewCommentSelection(e)
+  this.props.onCommentSelect(e)
+  }
+  handleNewCommentSelection(e){
     this.state.commentTypeSelection.push(e.target.value)
     this.setState({
       commentTypeSelection:this.state.commentTypeSelection
@@ -114,7 +126,7 @@ export default class Comments extends Component {
             <button onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add Comment</button>
           }
           </span>
-          <select
+          <select ref='item'
           onChange={this.handleCommentTypeSelection.bind(this)}>
           <option> Select A Type of Comment </option>
           <option value="Thesis"> Thesis Comment </option>

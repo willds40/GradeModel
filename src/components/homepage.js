@@ -12,7 +12,9 @@ export default class Homepage extends Component {
     super();
     this.state = {
     open: false,
-    commmentTypeBar:false
+    commmentTypeBar:false,
+    commentType:"",
+    newWordHighlted:false
       }
   }
   onSubmitGrade(){
@@ -27,15 +29,16 @@ export default class Homepage extends Component {
     this.setState({ open: false });
   };
 
-  onNewWordsHighlight(){
+  focusOnAddCommentButton(){
+    console.log("focus on button");
     this.setState({
-
+    newWordHighlted:true
     })
   }
 
-  onCompletionOfNewHighlight(){
+  onCommentSelect(e){
     this.setState({
-    
+      commentType:e.target.value
     })
   }
 
@@ -58,8 +61,13 @@ export default class Homepage extends Component {
           }
         <Essay
         onNewWordsHighlight = {this.onNewWordsHighlight.bind(this)}
+        commentType = {this.state.commentType}
+        focusOnAddCommentButton = {this.focusOnAddCommentButton.bind(this)}
          />
-        <Comments />
+        <Comments
+        onCommentSelect={this.onCommentSelect.bind(this)}
+        onNewWordToHighlight ={this.state.newWordHighlted}
+        />
         <div className='submit-essay col-md-8'>
           <button onClick={this.onSubmitGrade.bind(this)} className='submit-button'>Submit Grade</button>
         </div>
