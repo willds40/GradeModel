@@ -37,8 +37,9 @@ export default class Homepage extends Component {
   }
 
   onCommentSelect(e){
+    console.log(e.target.value);
     this.setState({
-      commentType:e.target.value
+      commentType :e.target.value
     })
   }
 
@@ -60,7 +61,6 @@ export default class Homepage extends Component {
           <Summary />
           }
         <Essay
-        onNewWordsHighlight = {this.onNewWordsHighlight.bind(this)}
         commentType = {this.state.commentType}
         focusOnAddCommentButton = {this.focusOnAddCommentButton.bind(this)}
          />

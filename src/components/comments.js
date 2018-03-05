@@ -15,11 +15,7 @@ export default class Comments extends Component {
   }
 
   componentWillReceiveProps(){
-    console.log(this.props.onNewWordToHighlight);
-    if (this.props.onNewWordToHighlight == false) {
-      console.log("inside if ");
       this.refs.item.focus()
-    }
   }
 
   handleCommentTypeSelection(e){

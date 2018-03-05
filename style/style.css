@@ -65,6 +65,10 @@ font-weight: bold;
   background-color: #9400D3;
 }
 
+.Argument-highlighter{
+   background-color:orange;
+}
+
 .summary{
   margin-bottom: 20px;
   font-size: 18px;

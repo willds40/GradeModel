@@ -11,13 +11,15 @@ export default class Essay extends Component {
     }
   }
 
-  onSubmitGrade(){
-    window.alert("Thank You For Submitting Your Grade");
+  componentWillReceiveProps(){
+      console.log(this.props.commentType);
   }
+
+
   textToHighlight(e) {
     this.props.focusOnAddCommentButton()
       var text = (window.getSelection().toString());
-      this.state.highlightText.push(text)
+      this.state.highlightText.push(text);
       this.setState({
         highlightText:this.state.highlightText,
         commentType:this.props.commentType
@@ -33,7 +35,7 @@ export default class Essay extends Component {
           <Highlighter
           searchWords={this.state.highlightText}
           autoEscape={true}
-          highlightClassName={this.state.commentType + "-" + 'highlighter' }
+          highlightClassName={this.state.commentType == '' ? this.props.commentType + '-' + 'highlighter' :this.state.commentType + '-' + 'highlighter' }
           textToHighlight={this.state.essayText}
           />
         </div>
