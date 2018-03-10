@@ -5,6 +5,8 @@ import ReactTooltip from 'react-tooltip'
 
 
 const NUMBEROFCOMMENTSALLOWED = 6
+let commentTypleCollection = ["Thesis", "Thesis", "Thesis"]
+let commentNumber = null;
 export default class Comments extends Component {
   constructor() {
     super();
@@ -12,7 +14,6 @@ export default class Comments extends Component {
       commentNumber: 4,
       commentsToAdd: [],
       deletedComments:[],
-      commentTypeSelection :[],
       buttonDisable:true
     }
   }
@@ -21,18 +22,12 @@ export default class Comments extends Component {
       this.refs.item.focus()
   }
 
-  // handleCommentTypeSelection(e){
-  //   this.handleNewCommentSelection(e)
-  //   this.props.onCommentSelect(e)
-  //   this.setState({
-  //     buttonDisable:false
-  //   })
-  // }
 
   handleNewCommentSelection(e){
-    this.state.commentTypeSelection.push(e.target.value)
+    let commentType = (e.target.value)
+    commentTypleCollection[this.state.commentNumber] = e.target.value
+    console.log(commentTypleCollection);
     this.setState({
-      commentTypeSelection:this.state.commentTypeSelection,
       buttonDisable:false
     })
   }
@@ -96,30 +91,30 @@ export default class Comments extends Component {
           }
 
           {!this.state.deletedComments.includes(4)  && this.state.commentsToAdd.includes(4) ?
-            <div className={'input-comment-container' + " " +  this.state.commentTypeSelection[0] + "-"  + "section"}>
+            <div className={'input-comment-container' + " " +  commentTypleCollection[4] + "-"  + "section"}>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 4)}
             >Remove</button>
-            <h4 className='comment-type'>{this.state.commentTypeSelection[0]}</h4>
+            <h4 className='comment-type'>{commentTypleCollection[4]}</h4>
             <CommentBox value={""}/>
             </div> : null
           }
 
-          { !this.state.deletedComments.includes(5) && this.state.commentsToAdd.includes(5) ? <div className={'input-comment-container' + " " +  this.state.commentTypeSelection[1] + "-"  + "section"}>
+          { !this.state.deletedComments.includes(5) && this.state.commentsToAdd.includes(5) ? <div className={'input-comment-container' + " " +  commentTypleCollection[5] + "-"  + "section"}>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 5)}
             >Remove</button>
-            <h4 className='comment-type'>{ this.state.commentTypeSelection[1]}</h4>
+            <h4 className='comment-type'>{commentTypleCollection[5]}</h4>
             <CommentBox value={""}/>
             </div> : null
           }
 
           {!this.state.deletedComments.includes(6) && this.state.commentsToAdd.includes(6) ?
-            <div className={'input-comment-container' + " " +  this.state.commentTypeSelection[2] + "-"  + "section"}>
+            <div className={'input-comment-container' + " " +  commentTypleCollection[6] + "-"  + "section"}>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 6)}
             >Remove</button>
-            <h4 className='comment-type'>{this.state.commentTypeSelection[2]}</h4>
+            <h4 className='comment-type'>{commentTypleCollection[6]}</h4>
             <CommentBox value={""}/>
             </div> : null
           }
