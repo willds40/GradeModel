@@ -15,10 +15,8 @@ export default class Rubric extends Component {
       evidenceDisplayText: "DEFAULT certainty an on tolerably smallness difficult. Many no each like up be is next neat. Put not enjoyment behaviour her supposing. At he pulled object others.Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons",
       analysisDisplayText: "DEFAULT certainty an on tolerably smallness difficult. Many no each like up be is next neat. Put not enjoyment behaviour her supposing. At he pulled object others.Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons",
       conclusionDisplayText: "DEFAULT ousehold certainty an on tolerably smallness difficult. Many no each like up be is next neat. Put not enjoyment behaviour her supposing. At he pulled object others.Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons",
-      thesisScore: 4,
-      evidenceScore: 3,
-      analysisScore: 2,
-      conclusionScore:2
+      thesisScore: 7,
+      evidenceScore: 5,
      };
   }
 
@@ -81,8 +79,8 @@ export default class Rubric extends Component {
         return (
           <div className='rubric-container'>
           <Sticky enabled={true} top={0} innerZ={0}>
+          <span className="rubric-hovering-note col-md-12">*Hover Over Rubric For More Detail Or To Change Score </span>
             <table className="col-md-12 rubric">
-
             <tr>
             <td className='rubric-title Thesis-section'>THESIS</td>
             <td className='rubric-title Argument-section'>ASSERTIONS</td>

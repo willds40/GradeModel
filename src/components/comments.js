@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import CommentBox from './comment-box'
 import plusIcon from '../assets/icons/plus-icon.png'
+import ReactTooltip from 'react-tooltip'
+
 
 const NUMBEROFCOMMENTSALLOWED = 6
 export default class Comments extends Component {
@@ -10,7 +12,8 @@ export default class Comments extends Component {
       commentNumber: 4,
       commentsToAdd: [],
       deletedComments:[],
-      commentTypeSelection :[]
+      commentTypeSelection :[],
+      buttonDisable:true
     }
   }
 
@@ -18,14 +21,19 @@ export default class Comments extends Component {
       this.refs.item.focus()
   }
 
-  handleCommentTypeSelection(e){
-  this.handleNewCommentSelection(e)
-  this.props.onCommentSelect(e)
-  }
+  // handleCommentTypeSelection(e){
+  //   this.handleNewCommentSelection(e)
+  //   this.props.onCommentSelect(e)
+  //   this.setState({
+  //     buttonDisable:false
+  //   })
+  // }
+
   handleNewCommentSelection(e){
     this.state.commentTypeSelection.push(e.target.value)
     this.setState({
-      commentTypeSelection:this.state.commentTypeSelection
+      commentTypeSelection:this.state.commentTypeSelection,
+      buttonDisable:false
     })
   }
 
@@ -73,7 +81,7 @@ export default class Comments extends Component {
             {this.handleDeleteComment.bind(this , 2)}
             >Remove</button>
             <h4 className='comment-type'>Thesis</h4>
-            <CommentBox value={"Perfect. 7/7"}/>
+            <CommentBox value={"Perfect!"}/>
             </div>
           }
 
@@ -116,18 +124,25 @@ export default class Comments extends Component {
             </div> : null
           }
 
-          <span className='add-comment col-md-4 '>
-          {this.state.unique == 6 ?<button onClick={this.handleAddComment.bind(this)} className='add-comment-button'>Add Comment</button>
-          :
-            <button onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add Comment</button>
-          }
-          </span>
-          <select ref='item'
-          onChange={this.handleCommentTypeSelection.bind(this)}>
-          <option> Select A Type of Comment </option>
+          <select className='select-comment-type col-md-10' ref='item'
+          onChange={this.handleNewCommentSelection.bind(this)}>
+          <option defaultValue= 'Select A Comment To Add'>Select A Comment To Add </option>
           <option value="Thesis"> Thesis Comment </option>
           <option value="Argument"> Argument Comment </option>
           </select>
+
+          <span className='add-comment col-md-9'>
+          {this.state.unique == 6 ?
+            <button onClick={this.handleAddComment.bind(this)}
+            disabled={this.state.buttonDisable === true}
+           className='add-comment-button'>Add Comment</button>
+          :
+            <button
+             disabled={this.state.buttonDisable === true}
+             onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add Comment
+             </button>
+          }
+          </span>
         </div>
         );
     }

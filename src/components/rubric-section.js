@@ -21,7 +21,7 @@ export default class RubricSection extends Component {
           <div className='rubric-container'>
             <table className="col-md-12 rubric">
             <tr>
-            <td className='rubric-number'>1
+            <td className='rubric-number rubric-section'>1
             <input checked={this.state.selectedOption === '1'}
              className='radio-section-button' type="radio" value="1"
             onChange={this.props.handleTextAndScoreChange}
