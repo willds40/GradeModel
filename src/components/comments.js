@@ -24,12 +24,14 @@ export default class Comments extends Component {
 
 
   handleNewCommentSelection(e){
-    let commentType = (e.target.value)
-    commentTypleCollection[this.state.commentNumber] = e.target.value
-    console.log(commentTypleCollection);
-    this.setState({
-      buttonDisable:false
-    })
+    if (e.target.value != ""){
+      let commentType = (e.target.value)
+      commentTypleCollection[this.state.commentNumber] = e.target.value
+      console.log(commentTypleCollection);
+      this.setState({
+        buttonDisable:false
+      })
+    }
   }
 
   handleAddComment(commentNumber){
@@ -120,8 +122,8 @@ export default class Comments extends Component {
           }
 
           <select className='select-comment-type col-md-10' ref='item'
-          onChange={this.handleNewCommentSelection.bind(this)}>
-          <option defaultValue= 'Select A Comment To Add'>Select A Comment To Add </option>
+          onMouseLeave={this.handleNewCommentSelection.bind(this)}>
+          <option value=""> Select A Comment To Add </option>
           <option value="Thesis"> Thesis Comment </option>
           <option value="Argument"> Argument Comment </option>
           </select>
