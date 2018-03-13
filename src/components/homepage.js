@@ -29,12 +29,7 @@ export default class Homepage extends Component {
     this.setState({ open: false });
   };
 
-  focusOnAddCommentButton(){
-    console.log("focus on button");
-    this.setState({
-    newWordHighlted:true
-    })
-  }
+
 
   onCommentSelect(e){
     console.log(e.target.value);
@@ -61,7 +56,6 @@ export default class Homepage extends Component {
           }
         <Essay
         commentType = {this.state.commentType}
-        focusOnAddCommentButton = {this.focusOnAddCommentButton.bind(this)}
          />
         <Comments
         onCommentSelect={this.onCommentSelect.bind(this)}

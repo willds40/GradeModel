@@ -16,7 +16,6 @@ export default class Essay extends Component {
 
 
   textToHighlight(e) {
-    this.props.focusOnAddCommentButton()
       var text = (window.getSelection().toString());
       this.state.highlightText.push(text);
       this.setState({
