@@ -116,8 +116,8 @@ export default class Rubric extends Component {
             </tr>
 
             <tr>
-            <td className='rubric-number Thesis-section'>{this.state.thesisScore}</td>
-            <td className='rubric-number Argument-section'> {this.state.evidenceScore}</td>
+            <td className='rubric-number Thesis-section'>SCORE:  {this.state.thesisScore}</td>
+            <td className='rubric-number Argument-section'> SCORE:       {this.state.evidenceScore}</td>
             </tr>
 
             </table>
