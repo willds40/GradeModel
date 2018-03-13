@@ -83,11 +83,11 @@ export default class Comments extends Component {
           }
 
           {this.state.deletedComments.includes(3) ? null :
-            <div className='input-comment-container Thesis-section'>
+            <div className='input-comment-container Argument-section'>
             <button  className="delete-comment-button" onClick=
             {this.handleDeleteComment.bind(this, 3)}
             >Remove</button>
-            <h4 className='comment-type'>Thesis</h4>
+            <h4 className='comment-type'>Argument</h4>
             <CommentBox value={"Does this go with the rest of the essay?"}/>
             </div>
           }
