@@ -15,7 +15,7 @@ export default class Homepage extends Component {
     commmentTypeBar:false,
     commentType:"",
     newWordHighlted:false
-      }
+    }
   }
   onSubmitGrade(){
     window.alert("Thank You For Submitting Your Grade");
@@ -26,8 +26,11 @@ export default class Homepage extends Component {
   };
 
   onCloseModal = () => {
-    this.setState({ open: false });
-  };
+    this.setState({
+    open: false,
+    });
+  }
+
 
 
 
@@ -41,7 +44,6 @@ export default class Homepage extends Component {
   render() {
     return (
       <div>
-        <Modal />
         <Rubric />
         {this.state.commmentTypeBar == true ? <CommentType /> : null}
         {this.state.open ===  false ?

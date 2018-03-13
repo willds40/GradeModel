@@ -18,11 +18,6 @@ export default class Comments extends Component {
     }
   }
 
-  componentWillReceiveProps(){
-      this.refs.item.focus()
-  }
-
-
   handleNewCommentSelection(e){
     if (e.target.value != ""){
       let commentType = (e.target.value)
