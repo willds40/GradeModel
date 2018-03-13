@@ -42,6 +42,9 @@ export default class CommentBox extends Component {
           <div>
           <CommentDropDown
             text={""}
+            option1={"Needs more context"}
+            option2={"Almost there. You are missing one component"}
+            option3={"Is there a better piceve of evidence that you can select"}
             handleSelectionChange={this.handleSelectionChange.bind(this)}
             />
           </div>

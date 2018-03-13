@@ -15,8 +15,9 @@ export default class CommentDropDown extends Component {
           <select onChange={this.props.handleSelectionChange}
           className=" selectpicker select-comment">
            <option value=""> Select A Different Comment </option>
-           <option value="er companions instrument set estimating sex remarkably solicitude motionless. Property men the why smallest graceful day insisted required. Inquiry justice country old placing sitting any ten age.">er companions instrument set estimating sex remarkably solicitude motionless. Property men the why smallest graceful day insisted required. Inquiry justice country old placing sitting any ten age.</option>
-           <option value ="Item 3">Item 3</option>
+           <option value={this.props.option1}>{this.props.option1}</option>
+           <option value ={this.props.option2}>{this.props.option2}</option>
+          <option value ={this.props.option3}>{this.props.option3}</option>
           </select>
         );
     }
