@@ -116,14 +116,14 @@ export default class Comments extends Component {
             </div> : null
           }
 
-          <select className='select-comment-type col-md-10' ref='item'
+          <select className='select-comment-type col-md-6' ref='item'
           onMouseLeave={this.handleNewCommentSelection.bind(this)}>
           <option value=""> Select A Comment To Add </option>
           <option value="Thesis"> Thesis Comment </option>
           <option value="Argument"> Argument Comment </option>
           </select>
 
-          <span className='add-comment col-md-9'>
+          <span className='add-comment col-md-6'>
           {this.state.unique == 6 ?
             <button onClick={this.handleAddComment.bind(this)}
             disabled={this.state.buttonDisable === true}
