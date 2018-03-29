@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CommentBox from './comment-box'
 import plusIcon from '../assets/icons/plus-icon.png'
-import ReactTooltip from 'react-tooltip'
 
 const NUMBEROFCOMMENTSALLOWED = 6
 let commentTypleCollection = ["Thesis", "Thesis", "Argument"]
