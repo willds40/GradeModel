@@ -185,6 +185,7 @@ float:right;
   font-size: 20px;
   width: 300px;
   height:36px;
+  float:right;
 }
 .modal{
   background-color: orange
