@@ -6,6 +6,8 @@ const NUMBEROFCOMMENTSALLOWED = 6
 let commentTypleCollection = ["Thesis", "Thesis", "Argument"]
 let commentNumber = null;
 
+//think more about the nubmers 
+
 export default class Comments extends Component {
   constructor() {
     super();
@@ -16,21 +18,26 @@ export default class Comments extends Component {
       buttonDisabled:true
     }
     this.handleDeleteComment = this.handleDeleteComment.bind(this)
-    this.toggleAddCommentButton = this.toggleAddCommentButton.bind(this)
   }
 
+//need to refactor
   handleNewCommentSelection(e){
-    if (e.target.value != ""){
+    if (e.target.value === ""){
+      this.setState({
+        buttonDisabled:true
+      })
+    }
+      else{
+        console.log("HERE");
       let commentType = (e.target.value)
       commentTypleCollection[this.state.commentNumber] = e.target.value
-      this.toggleAddCommentButton()
+      this.setState({
+        buttonDisabled:false
+      })
     }
   }
-  toggleAddCommentButton(){
-    this.setState({
-      buttonDisabled:!this.state.buttonDisabled
-    })
-  }
+
+//need to refactor
   handleAddComment(commentNumber){
     var addedComments = this.state.commentsToAdd
     var deletedComments = this.state.deletedComments
