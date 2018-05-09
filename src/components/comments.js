@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import CommentBox from './comment-box'
 import plusIcon from '../assets/icons/plus-icon.png'
-import CommentFomModel from './comment_from_model'
-
-///create different comments for comments thta can be added
-
+import CommentCard from './comment_card'
 const NUMBEROFCOMMENTSALLOWED = 6
 let commentTypleCollection = ["Thesis", "Thesis", "Argument"]
 let commentNumber = null;
+
 export default class Comments extends Component {
   constructor() {
     super();
@@ -15,10 +13,9 @@ export default class Comments extends Component {
       commentNumber: 4,
       commentsToAdd: [],
       deletedComments:[],
-      buttonDisable:false
     }
     this.handleDeleteComment = this.handleDeleteComment.bind(this)
-   }
+  }
 
   handleNewCommentSelection(e){
     if (e.target.value != ""){
@@ -29,7 +26,6 @@ export default class Comments extends Component {
       })
     }
   }
-
   handleAddComment(commentNumber){
     var addedComments = this.state.commentsToAdd
     var deletedComments = this.state.deletedComments
@@ -56,81 +52,71 @@ export default class Comments extends Component {
   }
 
   render() {
-      return (
-        <div className='comments col-md-3'>
-          {this.state.deletedComments.includes(1) ? null
-          :
-          <CommentFomModel
-           handleDeleteComment={this.handleDeleteComment.bind(this,1)}
-           commentType={"Thesis"}
-           commentValue={"Great imagary"}
-          />
-        }
+    return (
+      <div className='comments col-md-3'>
+        {this.state.deletedComments.includes(1) ? null
+        :
+        <CommentCard
+         handleDeleteComment={this.handleDeleteComment.bind(this,1)}
+         commentType={"Thesis"}
+         commentValue={"Great imagary"}
+        />
+      }
 
-        {this.state.deletedComments.includes(2) ? null
-          :
-          <CommentFomModel
-           handleDeleteComment={this.handleDeleteComment.bind(this,2)}
-           commentType={"Thesis"}
-           commentValue={"Perfect"}
-          />
-        }
+      {this.state.deletedComments.includes(2) ? null
+        :
+        <CommentCard
+         handleDeleteComment={this.handleDeleteComment.bind(this,2)}
+         commentType={"Thesis"}
+         commentValue={"Perfect"}
+        />
+      }
 
-        {this.state.deletedComments.includes(3) ? null
-          :
-          <CommentFomModel
-           handleDeleteComment={this.handleDeleteComment.bind(this,3)}
-           commentType={"Argument"}
-           commentValue={"Does this go with the rest of the essay?"}
-          />
-        }
+      {this.state.deletedComments.includes(3) ? null
+        :
+        <CommentCard
+         handleDeleteComment={this.handleDeleteComment.bind(this,3)}
+         commentType={"Argument"}
+         commentValue={"Does this go with the rest of the essay?"}
+        />
+      }
 
+      {!this.state.deletedComments.includes(4)  && this.state.commentsToAdd.includes(4) ?
+        <CommentCard
+        commentType={commentTypleCollection[4]}
+        handleDeleteComment={this.handleDeleteComment.bind(this,4)}
+        commentValue={""}
+        /> : null
+      }
 
-        ///create different comments for comments thta can be added
+      {!this.state.deletedComments.includes(5)  && this.state.commentsToAdd.includes(5) ?
+        <CommentCard
+        commentType={commentTypleCollection[5]}
+        handleDeleteComment={this.handleDeleteComment.bind(this,5)}
+        commentValue={""}
+        /> : null
+      }
 
-        {!this.state.deletedComments.includes(4)  && this.state.commentsToAdd.includes(4) ?
-          <div className={'input-comment-container' + " " +  commentTypleCollection[4] + "-"  + "section"}>
-          <button  className="delete-comment-button"
-          onClick= {this.handleDeleteComment.bind(this, 4)}>Remove
-          </button>
-          <h4 className='comment-type'>{commentTypleCollection[4]}</h4>
-          <CommentBox value={""}/>
-          </div> : null
-        }
+      {!this.state.deletedComments.includes(6)  && this.state.commentsToAdd.includes(6) ?
+        <CommentCard
+        commentType={commentTypleCollection[6]}
+        handleDeleteComment={this.handleDeleteComment.bind(this,6)}
+        commentValue={""}
+        /> : null
+      }
 
-        { !this.state.deletedComments.includes(5) && this.state.commentsToAdd.includes(5) ?
-          <div className={'input-comment-container' + " " +  commentTypleCollection[5] + "-"  + "section"}>
-          <button  className="delete-comment-button"
-          onClick= {this.handleDeleteComment.bind(this, 5)}>Remove
-          </button>
-          <h4 className='comment-type'>{commentTypleCollection[5]}</h4>
-          <CommentBox value={""}/>
-          </div> : null
-        }
-
-        {!this.state.deletedComments.includes(6) && this.state.commentsToAdd.includes(6) ?
-          <div className={'input-comment-container' + " " +  commentTypleCollection[6] + "-"  + "section"}>
-          <button  className="delete-comment-button" onClick=
-          {this.handleDeleteComment.bind(this, 6)}
-          >Remove</button>
-          <h4 className='comment-type'>{commentTypleCollection[6]}</h4>
-          <CommentBox value={""}/>
-          </div> : null
-        }
-
-        <select className='select-comment-type' ref='item'
-        onMouseLeave={this.handleNewCommentSelection.bind(this)}>
-        <option value=""> Select A Comment To Add </option>
-        <option value="Thesis"> Thesis Comment </option>
-        <option value="Argument"> Argument Comment </option>
-        </select>
-        <span className='add-comment col-md-6'>
-          <button
-           onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add Comment
-           </button>
-
-        </span>
-      </div>
-      );
+      <select className='select-comment-type' ref='item'
+      onMouseLeave={this.handleNewCommentSelection.bind(this)}>
+      <option value=""> Select A Comment To Add </option>
+      <option value="Thesis"> Thesis Comment </option>
+      <option value="Argument"> Argument Comment </option>
+      </select>
+      <span className='add-comment col-md-6'>
+        <button
+         onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add Comment
+         </button>
+      </span>
+    </div>
+    );
   }
 }

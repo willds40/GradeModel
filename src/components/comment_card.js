@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CommentBox from './comment-box'
 
-export default class CommentFomModel extends Component{
+export default class CommentCard extends Component{
   constructor(){
     super()
   }
