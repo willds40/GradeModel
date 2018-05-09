@@ -13,18 +13,23 @@ export default class Comments extends Component {
       commentNumber: 4,
       commentsToAdd: [],
       deletedComments:[],
+      buttonDisabled:true
     }
     this.handleDeleteComment = this.handleDeleteComment.bind(this)
+    this.toggleAddCommentButton = this.toggleAddCommentButton.bind(this)
   }
 
   handleNewCommentSelection(e){
     if (e.target.value != ""){
       let commentType = (e.target.value)
       commentTypleCollection[this.state.commentNumber] = e.target.value
-      this.setState({
-        buttonDisable:false
-      })
+      this.toggleAddCommentButton()
     }
+  }
+  toggleAddCommentButton(){
+    this.setState({
+      buttonDisabled:!this.state.buttonDisabled
+    })
   }
   handleAddComment(commentNumber){
     var addedComments = this.state.commentsToAdd
@@ -113,6 +118,7 @@ export default class Comments extends Component {
       </select>
       <span className='add-comment col-md-6'>
         <button
+        disabled={this.state.buttonDisabled}
          onClick={this.handleAddComment.bind(this, this.state.commentNumber)} className='add-comment-button'>Add Comment
          </button>
       </span>
