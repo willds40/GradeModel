@@ -9,6 +9,7 @@ export default class Comments extends Component {
   constructor() {
     super();
     this.state = {
+      comments:[1,2,3],
       commentsToAdd: [],
       deletedComments:[],
       buttonDisabled:true,
@@ -16,7 +17,7 @@ export default class Comments extends Component {
     }
     this.handleDeleteComment = this.handleDeleteComment.bind(this)
   }
-  
+
   handleNewCommentSelection(e){
     if (e.target.value === ""){
       this.setState({
@@ -54,19 +55,19 @@ export default class Comments extends Component {
 
   }
 
-  handleDeleteComment(commentNumberToAdd){
-  var deletedComments = this.state.deletedComments
-  deletedComments.push(commentNumberToAdd)
-
+  handleDeleteComment(commentNumber){
+  let comments = [...this.state.comments]
+  let index = commentNumber -1
+  comments.splice(index, 1);
   this.setState({
-    deletedComments : deletedComments,
+    comments:comments,
    });
   }
 
   render() {
     return (
       <div className='comments col-md-3'>
-        {this.state.deletedComments.includes(1) ? null
+        {!this.state.comments.includes(1) ? null
         :
         <CommentCard
            handleDeleteComment={this.handleDeleteComment.bind(this,1)}
@@ -75,7 +76,7 @@ export default class Comments extends Component {
         />
       }
 
-      {this.state.deletedComments.includes(2) ? null
+      {!this.state.comments.includes(2) ? null
         :
         <CommentCard
            handleDeleteComment={this.handleDeleteComment.bind(this,2)}
@@ -84,7 +85,7 @@ export default class Comments extends Component {
         />
       }
 
-      {this.state.deletedComments.includes(3) ? null
+      {!this.state.comments.includes(3) ? null
         :
         <CommentCard
            handleDeleteComment={this.handleDeleteComment.bind(this,3)}
@@ -93,7 +94,7 @@ export default class Comments extends Component {
         />
       }
 
-      {!this.state.deletedComments.includes(4)  && this.state.commentsToAdd.includes(4) ?
+      {!this.state.comments.includes(4)  && this.state.commentsToAdd.includes(4) ?
         <CommentCard
           commentType={commentTypleCollection[4]}
           handleDeleteComment={this.handleDeleteComment.bind(this,4)}
@@ -101,14 +102,14 @@ export default class Comments extends Component {
         /> : null
       }
 
-      {!this.state.deletedComments.includes(5)  && this.state.commentsToAdd.includes(5) ?
+      {!this.state.comments.includes(5)  && this.state.commentsToAdd.includes(5) ?
         <CommentCard
           commentType={commentTypleCollection[5]}
           handleDeleteComment={this.handleDeleteComment.bind(this,5)}
           commentValue={""}
         /> : null
       }
-      {!this.state.deletedComments.includes(6)  && this.state.commentsToAdd.includes(6) ?
+      {!this.state.comments.includes(6)  && this.state.commentsToAdd.includes(6) ?
         <CommentCard
           commentType={commentTypleCollection[6]}
           handleDeleteComment={this.handleDeleteComment.bind(this,6)}
