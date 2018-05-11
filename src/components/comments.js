@@ -9,11 +9,10 @@ export default class Comments extends Component {
   constructor() {
     super();
     this.state = {
-      comments:[1,2,3],
+      comments:[1,2,3], //numbers are the key->new better way
       commentsToAdd: [],
-      deletedComments:[],
       buttonDisabled:true,
-      commentNumberToAdd:4 //Comments on Screen + 1
+      commentNumberToAdd:4 //The next  comment we are going to add
     }
     this.handleDeleteComment = this.handleDeleteComment.bind(this)
   }
@@ -36,65 +35,58 @@ export default class Comments extends Component {
     commentTypleCollection[commentNumberToAdd] = commentType
   }
 
-//need to refactor
   handleAddComment(commentNumberToAdd){
-    console.log("here");
-    var addedComments = this.state.commentsToAdd
-    var deletedComments = this.state.deletedComments
-    addedComments.push(commentNumberToAdd)
-    var index = deletedComments.indexOf(index)
-    deletedComments.splice(index,1)
+    var comments = [...this.state.comments]
+    comments.push(commentNumberToAdd)
     if(commentNumberToAdd < NUMBEROFCOMMENTSALLOWED){
       commentNumberToAdd = commentNumberToAdd + 1
     }
     this.setState({
       commentNumberToAdd:commentNumberToAdd,
-      commentsToAdd : addedComments,
-      deletedComments:deletedComments
+      comments : comments,
     })
-
   }
 
   handleDeleteComment(commentNumber){
-  let comments = [...this.state.comments]
-  let index = commentNumber -1
-  comments.splice(index, 1);
-  this.setState({
-    comments:comments,
-   });
+    let comments = [...this.state.comments]
+    let index = commentNumber -1
+    comments.splice(index, 1);
+    this.setState({
+      comments:comments,
+     });
   }
 
   render() {
     return (
       <div className='comments col-md-3'>
-        {!this.state.comments.includes(1) ? null
-        :
+        {this.state.comments.includes(1) ?
         <CommentCard
            handleDeleteComment={this.handleDeleteComment.bind(this,1)}
            commentType={"Thesis"}
            commentValue={"Great imagary"}
         />
+        :null
       }
 
-      {!this.state.comments.includes(2) ? null
-        :
+      {this.state.comments.includes(2) ?
         <CommentCard
            handleDeleteComment={this.handleDeleteComment.bind(this,2)}
            commentType={"Thesis"}
            commentValue={"Perfect"}
         />
+        : null
       }
 
-      {!this.state.comments.includes(3) ? null
-        :
+      {this.state.comments.includes(3) ?
         <CommentCard
            handleDeleteComment={this.handleDeleteComment.bind(this,3)}
            commentType={"Argument"}
            commentValue={"Does this go with the rest of the essay?"}
         />
+        : null
       }
 
-      {!this.state.comments.includes(4)  && this.state.commentsToAdd.includes(4) ?
+      {this.state.comments.includes(4) ?
         <CommentCard
           commentType={commentTypleCollection[4]}
           handleDeleteComment={this.handleDeleteComment.bind(this,4)}
@@ -102,14 +94,14 @@ export default class Comments extends Component {
         /> : null
       }
 
-      {!this.state.comments.includes(5)  && this.state.commentsToAdd.includes(5) ?
+      {this.state.comments.includes(5) ?
         <CommentCard
           commentType={commentTypleCollection[5]}
           handleDeleteComment={this.handleDeleteComment.bind(this,5)}
           commentValue={""}
         /> : null
       }
-      {!this.state.comments.includes(6)  && this.state.commentsToAdd.includes(6) ?
+      {this.state.comments.includes(6) ?
         <CommentCard
           commentType={commentTypleCollection[6]}
           handleDeleteComment={this.handleDeleteComment.bind(this,6)}
