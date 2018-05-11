@@ -9,8 +9,7 @@ export default class Comments extends Component {
   constructor() {
     super();
     this.state = {
-      comments:[1,2,3], //numbers are the key->new better way
-      commentsToAdd: [],
+      commentKeys:[1,2,3],
       buttonDisabled:true,
       commentNumberToAdd:4 //The next  comment we are going to add
     }
@@ -36,30 +35,30 @@ export default class Comments extends Component {
   }
 
   handleAddComment(commentNumberToAdd){
-    var comments = [...this.state.comments]
-    comments.push(commentNumberToAdd)
+    var commentKeys = [...this.state.commentKeys]
+    commentKeys.push(commentNumberToAdd)
     if(commentNumberToAdd < NUMBEROFCOMMENTSALLOWED){
       commentNumberToAdd = commentNumberToAdd + 1
     }
     this.setState({
       commentNumberToAdd:commentNumberToAdd,
-      comments : comments,
+      commentKeys : commentKeys,
     })
   }
 
   handleDeleteComment(commentNumber){
-    let comments = [...this.state.comments]
+    let commentKeys = [...this.state.commentKeys]
     let index = commentNumber -1
-    comments.splice(index, 1);
+    commentKeys.splice(index, 1);
     this.setState({
-      comments:comments,
+      commentKeys:commentKeys,
      });
   }
 
   render() {
     return (
       <div className='comments col-md-3'>
-        {this.state.comments.includes(1) ?
+        {this.state.commentKeys.includes(1) ?
         <CommentCard
            handleDeleteComment={this.handleDeleteComment.bind(this,1)}
            commentType={"Thesis"}
@@ -68,7 +67,7 @@ export default class Comments extends Component {
         :null
       }
 
-      {this.state.comments.includes(2) ?
+      {this.state.commentKeys.includes(2) ?
         <CommentCard
            handleDeleteComment={this.handleDeleteComment.bind(this,2)}
            commentType={"Thesis"}
@@ -77,7 +76,7 @@ export default class Comments extends Component {
         : null
       }
 
-      {this.state.comments.includes(3) ?
+      {this.state.commentKeys.includes(3) ?
         <CommentCard
            handleDeleteComment={this.handleDeleteComment.bind(this,3)}
            commentType={"Argument"}
@@ -86,7 +85,7 @@ export default class Comments extends Component {
         : null
       }
 
-      {this.state.comments.includes(4) ?
+      {this.state.commentKeys.includes(4) ?
         <CommentCard
           commentType={commentTypleCollection[4]}
           handleDeleteComment={this.handleDeleteComment.bind(this,4)}
@@ -94,14 +93,14 @@ export default class Comments extends Component {
         /> : null
       }
 
-      {this.state.comments.includes(5) ?
+      {this.state.commentKeys.includes(5) ?
         <CommentCard
           commentType={commentTypleCollection[5]}
           handleDeleteComment={this.handleDeleteComment.bind(this,5)}
           commentValue={""}
         /> : null
       }
-      {this.state.comments.includes(6) ?
+      {this.state.commentKeys.includes(6) ?
         <CommentCard
           commentType={commentTypleCollection[6]}
           handleDeleteComment={this.handleDeleteComment.bind(this,6)}
