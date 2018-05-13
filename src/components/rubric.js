@@ -9,15 +9,13 @@ export default class Rubric extends Component {
       selectedOption:"option",
       thesisIsOpen: false,
       evidenceIsOpen:false,
-      analysisIsOpen:false,
-      conclusionIsOpen:false,
       thesisDisplayText: "DEFAULT certainty an on tolerably smallness difficult. Many no each like up be is next neat. Put not enjoyment behaviour her supposing. At he pulled object others.Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons",
       evidenceDisplayText: "DEFAULT certainty an on tolerably smallness difficult. Many no each like up be is next neat. Put not enjoyment behaviour her supposing. At he pulled object others.Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons",
-      analysisDisplayText: "DEFAULT certainty an on tolerably smallness difficult. Many no each like up be is next neat. Put not enjoyment behaviour her supposing. At he pulled object others.Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons",
-      conclusionDisplayText: "DEFAULT ousehold certainty an on tolerably smallness difficult. Many no each like up be is next neat. Put not enjoyment behaviour her supposing. At he pulled object others.Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons",
       thesisScore: 7,
       evidenceScore: 5,
      };
+     this.handleScoreChange = this.handleScoreChange.bind(this)
+     this.handleTextAndScoreChange = this.handleTextAndScoreChange.bind(this)
   }
 
   thesisToggleModal = () => {
@@ -32,17 +30,6 @@ export default class Rubric extends Component {
     });
   }
 
-  analysisToggleModal = () => {
-    this.setState({
-      analysisIsOpen: !this.state.analysisIsOpen
-    });
-  }
-
-  conclusionToggleModal = () => {
-    this.setState({
-      conclusionIsOpen: !this.state.conclusionIsOpen
-    });
-  }
 
   handleScoreChange = (event) => {
     let categoryScore = category.concat("Score")
@@ -60,16 +47,6 @@ export default class Rubric extends Component {
      this.setState({
        evidenceScore: event.target.id,
        evidenceDisplayText: event.target.value
-     });
-     case "analysis":
-     this.setState({
-       analysisScore: event.target.id,
-       analysisDisplayText: event.target.value
-     });
-     case "conclusion":
-     this.setState({
-        conclusionScore: event.target.id,
-      conclusionDisplayText: event.target.value
      });
    default:
    return null;
@@ -93,8 +70,8 @@ export default class Rubric extends Component {
                   <Modal
                     section="thesis"
                     show={this.state.thesisIsOpen}
-                    handleScoreChange={this.handleScoreChange.bind(this)}
-                    handleTextAndScoreChange={this.handleTextAndScoreChange.bind(this)}
+                    handleScoreChange={this.handleScoreChange}
+                    handleTextAndScoreChange={this.handleTextAndScoreChange}
                   >
                   </Modal>
                   </td>
@@ -106,8 +83,8 @@ export default class Rubric extends Component {
                   <Modal
                     section="evidence"
                     show={this.state.evidenceIsOpen}
-                    handleScoreChange={this.handleScoreChange.bind(this)}
-                    handleTextAndScoreChange={this.handleTextAndScoreChange.bind(this)}
+                    handleScoreChange={this.handleScoreChange}
+                    handleTextAndScoreChange={this.handleTextAndScoreChange}
                   >
                   </Modal>
                   </td>
