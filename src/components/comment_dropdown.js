@@ -7,7 +7,6 @@ export default class CommentDropDown extends Component {
       value:""
     }
   }
-
   render() {
         return (
           <select onChange={this.props.handleSelectionChange}
