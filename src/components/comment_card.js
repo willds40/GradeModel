@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CommentBox from './comment-box'
+import CommentTextBox from './comment_text_box'
 
 export default class CommentCard extends Component{
   constructor(){
@@ -13,7 +13,7 @@ export default class CommentCard extends Component{
           onClick= {this.props.handleDeleteComment}> Remove
           </button>
           <h4 className='comment-type'>{this.props.commentType}</h4>
-          <CommentBox
+          <CommentTextBox
           value={this.props.commentValue}
           />
         </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CommentBox from './comment-box'
+import CommentTexrBox from './comment_text_box'
 import plusIcon from '../assets/icons/plus-icon.png'
 import CommentCard from './comment_card'
 const NUMBEROFCOMMENTSALLOWED = 6
@@ -23,7 +23,7 @@ export default class Comments extends Component {
       })
     }
     else{
-      this.addToCommenetTypeCollection(this.state.commentNumberToAdd,e.target.value)
+      this.addToCommenetTypeCollection(this.state.commentNumberToAdd, e.target.value)
       this.setState({
         buttonDisabled:false
       })
@@ -113,7 +113,7 @@ export default class Comments extends Component {
         onClick={this.handleAddComment.bind(this, this.state.commentNumberToAdd)} className='add-comment-button'>Add Comment
         </button>
       </span>
-      <select className='select-comment-type' ref='item'
+      <select className='select-comment-type'
         onMouseLeave={this.handleNewCommentSelection.bind(this)}>
         <option value=""> Select A Comment To Add </option>
         <option value="Thesis"> Thesis Comment </option>
