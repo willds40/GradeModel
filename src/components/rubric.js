@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Sticky from 'react-stickynode';
 import Modal from './modal'
 export default class Rubric extends Component {
-
   constructor() {
     super();
     this.state = {
