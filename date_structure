@@ -1,0 +1,29 @@
+//Rubric
+{
+  [
+    {
+      rubric_topic: "rubric topic name", (ie Not seen in demo. It would be like Argument as seen here http://dev.achievementfirst.org/high-school/interactive-writing-rubric/#argument )
+      rubric_section:[list of rubric sections] (ie: Thesis and Assertion in Demo)
+      score: score (int)
+    }
+  ]
+}
+
+
+// Summary
+  {
+    summary_text:"summary text"
+  }
+
+// Essay
+{
+  essay_text: "essay text"
+}
+
+//Comments
+{
+  [
+    comment_text: "comment text",
+    comment_suggestions: ["list of comment suggestions"]
+  ]
+}
