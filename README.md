@@ -6,7 +6,10 @@ GradeModel is an open source tool designed to make grading easier for writing te
 
 
 ## Dependencies
-
+- react-highlight-words": "^0.11.0",
+- "react-stickynode": "^1.4.0",
+-  "bootstrap": "^3.3.7"
+- "redux": "^3.0.4"
 
 ## Testing Frameworks
 
