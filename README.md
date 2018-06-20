@@ -12,6 +12,8 @@ GradeModel is an open source tool designed to make grading easier for writing te
 - "redux": "^3.0.4"
 
 ## Testing Frameworks
+- Jest
+- React Testing Frameworks
 
 ## How To Run The Application
  - ``npm start`` inside the Grademodel folder
