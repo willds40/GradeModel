@@ -31,6 +31,7 @@
     "bootstrap": "^3.3.7",
     "file-loader": "^1.1.11",
     "lodash": "^3.10.1",
+    "mocha": "^5.2.0",
     "optipng": "^1.1.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
